@@ -1,4 +1,4 @@
-name: Sync S3 Bucket
+name: Sync S3
 
 on:
   push:
