@@ -3,16 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>A One Landscaping</title>
+	<title>A-One Landscaping</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  		crossorigin="anonymous"></script>
 	<script src="script.js"></script>
 	<link href="style.css" rel="stylesheet">
+	<link rel="icon" href="img/a1-logo.png">
 </head>
 <body>
 
@@ -54,54 +53,61 @@
 		<div class="carousel-item active">
 			<img class="d-block w-100" src="img/background.jpg">
 			<div class="carousel-caption">
-				<h1 class="display-2">Welcome to A One Landscaping</h1>
+				<h1>A-One Landscaping</h1>
 				<h3>How can we make your life easier?</h3>
 				<a class="btn btn-outline-light btn-lg">View Projects</a>
-				<a href="#quoteForm" class="btn btn-primary btn-lg">Request Quote</a>
+				<a onclick="quoteBtnClick()" href="#quoteForm" class="btn btn-primary btn-lg">Request Quote</a>
 			</div>
 		</div>
 		<div class="carousel-item">
 			<img class="d-block w-100" src="img/background2.jpg">
+			<div class="carousel-caption">
+				<h1>Relax, let us do the yard work</h1>
+			</div>
 		</div>
 		<div class="carousel-item">
 			<img class="d-block w-100" src="img/background3.jpg">
+			<div class="carousel-caption">
+				<h1>Peace of Mind, all year round</h1>
+			</div>
 		</div> 
 	</div>
 </div>
 
 <!--- Jumbotron -->
 <div class="container-fluid">
-	<div class="row jumbotron padding">
+	<div class="row jumbotron">
 		<div class="col-12">
-			<p class="lead text-center">We provide quality commercial 
-				and residential landscaping services with over 5 years of experience.
+			<p class="lead text-center">Doing it right, the first time.
 			</p>
 		</div>
-	<!--<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 text-center">
-			<a href="#"><button type="button" class="btn btn-outline-secondary btn-lg">Services</button></a>
-		</div>-->
 	</div>
 </div>
 
-
-<!--- Welcome Section -->
 <a id="about">
 	<div class="container-fluid">
 		<div class="row welcome text-center">
 			<div class="col-12">
-				<h1 class="display-4">A One Landscaping</h1>
-		</div>
-		<hr>
-		<div class="col-12">
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat.</p>
+				<h1 class="display-4">A-One Landscaping</h1>
+				<hr>
+				<p class="lead">At A-One Landscaping, we focus on results because we understand that
+					the customer is at the heart of our business. Compassion and empathy drive everything
+					we do, that's why we strive to act like a partner to our clients, and combine traditional
+					values with innovative solutions to provide you with unparalleled service.
+				</p>
+			</div>
 		</div>
 	</div>
+	<hr class="my-4">
 </a>
+
 <!--- Three Column Section -->
 <a id="services">
+	<div class="row text-center">
+		<div class="col-12">
+			<h1 class="display-5">Services</h1>
+		</div>
+	</div>
 	<div class="container-fluid padding">
 		<div class="row text-center padding">
 			<div class="col-md-4">
@@ -194,9 +200,9 @@
 			</div>
 		</div>
 	</div>
-
-	<button class="quote btn btn-primary" data-toggle="collapse" data-target="#quote">Need a Quote?</button>
 	<a id="quoteForm"></a>
+	<hr>
+	<button class="quote btn btn-primary" data-toggle="collapse" data-target="#quote">Need a Quote?</button>
 	<div id="quote" class="collapse">
 		<div class="container-fluid padding ">
 			<div class="row text-center justify-content-center">
@@ -236,14 +242,13 @@
 		</div>
 	</div>
 </a>
-
-<hr class="my-4">
+<hr>
 
 <!--- Two Column Section -->
 <div class="container-fluid padding">
 	<div class="row padding">
 		<div class="col-md-12 col-lg-6">
-			<h2>If you build it, do it right the first time</h2>
+			<h2>Are you ready to bring your property back to life?</h2>
 			<p>consectetur adipiscing elit,
 				sed do eiusmod tempor incididunt ut labore et dolore</p>
 			<p>consectetur adipiscing elit,
@@ -260,75 +265,15 @@
 <hr class="my-4">
 
 <!--- Fixed background -->
+
 <figure>
-		<div class="fixed-wrap">
-			<div id="fixed">
-			</div>
+	<div class="fixed-wrap">
+		<div id="fixed">
+			<hr class="my-4">
 		</div>
+	</div>
 </figure>
 
-<!--- Two Column Section -->
-<div class="container-fluid padding">
-	<div class="row padding">
-		<div class="col-lg-6">
-			<img src="img/bootstrap2.png" class="img-fluid">
-		</div>
-		<div class="col-md-12 col-lg-6 text-center">
-			<h2>Our Philosophy</h2>
-			<p></p>
-			<br>
-		</div>
-	</div>
-	<hr class="my-4">
-</div>
-
-<!--- Meet the team 
-<div class="container-fluid padding">
-	<div class="row welcome text-center">
-		<div class="col-12">
-			<h1 class="display-4">Meet the Team</h1>
-		</div>
-		<hr>
-	</div>
-</div>
-
-<div class="container-fluid padding">
-	<div class="row padding">
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team1.png">
-				<div class="card-body">
-					<h4 class="card-title">Adam Wietczak</h4>
-					<p class="card-text">Adam is an experienced landscaping professional
-						with over 5 years of experience in the field.</p>
-						<a href="#" class="btn btn-outline-secondary">See Profile</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team2.png">
-				<div class="card-body">
-					<h4 class="card-title">Mary Jo</h4>
-					<p class="card-text">Mary is an experience landscaping professional
-						with over 5 years of experience in the field.</p>
-						<a href="#" class="btn btn-outline-secondary">See Profile</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img class="card-img-top" src="img/team3.png">
-				<div class="card-body">
-					<h4 class="card-title">Steve Law</h4>
-					<p class="card-text">Steve is an experience landscaping professional
-						with over 5 years of experience in the field.</p>
-						<a href="#" class="btn btn-outline-secondary">See Profile</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 
 <!--- Connect -->
@@ -355,31 +300,34 @@
 				<img src="img/a1-logo.png" style="height:50px;">
 				<hr class="light">
 				<p>(647)-523-6360</p>
-				<p>email@email.com</p>
-				<p>100 street name</p>
+				<p>services@a-onelandscaping.com</p>
+				<p>3451 Warley Crt</p>
 				<p>Mississauga, Ontario</p>
 			</div>
 			<div class="col-md-4">
 				<hr class="light">
 				<h5>Our Hours</h5>
 				<hr class="light">
-				<p>Monday Closed</p>
-				<p>Monday Closed</p>
-				<p>Monday Closed</p>
-				<p>Monday Closed</p>
+				<p>Monday 9:00am-6:00pm</p>
+				<p>Tuesday 9:00am-6:00pm</p>
+				<p>Wednesday 9:00am-6:00pm</p>
+				<p>Thursday 9:00am-6:00pm</p>
+				<p>Friday 9:00am-6:00pm</p>
 			</div>
 			<div class="col-md-4">
 				<hr class="light">
-				<h5>Serice Area</h5>
+				<h5>Servicing the GTA</h5>
 				<hr class="light">
-				<p>City State Zip</p>
-				<p>City State Zip</p>
-				<p>City State Zip</p>
-				<p>City State Zip</p>
+				<p>Toronto</p>
+				<p>Mississauga</p>
+				<p>Oakville</p>
+				<p>Brampton</p>
+				<p>Burlington</p>
+				<p>Etobicoke</p>
 			</div>
 			<div class="col-12">
 				<hr class="light-100">
-				<h5>A1-Landscaping</h5>
+				<h5>A-One Landscaping</h5>
 			</div>
 		</div>
 	</div>
@@ -387,13 +335,3 @@
 </body>
 </html>
 
-
-
-
-<!-- View in Browser: Drew's #1 Trending YouTube Tutorial -
-<div class="youtube-tutorial">
-	<a href="http://w3n.link/bundle-bonus-playlist" target="_blank" style="cursor: pointer!important;">
-    <img src="https://w3newbie.com/wp-content/uploads/12-site-bundle-banner.png" style="max-width: 100%; position: absolute; bottom: 0;">
-  </a>
-</div>
- End View in Browser: Drew's #1 Trending YouTube Tutorial -->
