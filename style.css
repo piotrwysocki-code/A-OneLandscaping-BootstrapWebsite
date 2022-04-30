@@ -46,13 +46,13 @@ html, body {
 }
 
 .btn-primary {
-  background-color: #6648b1;
-  border: 1px solid #6648b1;
+  background-color: #00c251;
+  border: 1px solid #00c251;
 }
 
 .btn-primary:hover {
-  background-color: #563d7c;
-  border: 1px solid #563d7c;
+  background-color: #00963f;
+  border: 1px solid #00963f;
 }
 
 .jumbotron{
@@ -77,7 +77,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.fun{
+.quote{
   width: 100%;
   margin-bottom: 2rem;
 }
