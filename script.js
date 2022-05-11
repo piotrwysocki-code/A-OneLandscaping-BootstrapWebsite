@@ -11,13 +11,23 @@ class QuoteRequest {
 $(()=>{
     var $root = $('html, body');
 
-$('a[href^="#"]').click(function () {
-    $root.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
+    $('.image-container').html('');
 
-    return false;
-});
+    for(let i = 0; i < 73; i++){
+        $('.image-container').append(`
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="thumbnail">
+                <img src="img/gallery/m${i}.jpg" />
+                </div>
+            </div>
+        `);
+    }
+
+    $('.nav .navbar-nav li a').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+
+
 });
 
 submitQuoteRequest = (e)=> {

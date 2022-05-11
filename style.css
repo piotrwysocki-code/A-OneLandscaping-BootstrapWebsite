@@ -5,6 +5,12 @@ html, body {
   width: 100%;
   font-family: 'Poppins', sans-serif;
   color: #222;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img {
+  pointer-events: none;
 }
 
 .navbar {
@@ -25,11 +31,20 @@ html, body {
   margin: auto;
 }
 
+.image-container{
+  height: 70vh;
+  overflow-y: scroll;
+}
+
 .carousel-caption {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   bottom: initial;
+}
+
+.carousel-control-prev, .carousel-control-next{
+  cursor: pointer;
 }
 
 .carousel-caption h1{
@@ -113,15 +128,24 @@ footer{
   padding-top: 2rem;
 }
 
+footer a{
+  color: #d5d5d5;
+}
+
+.thumbnail{
+}
+
+.thumbnail img{
+  width: 100%;
+  height: 400px;
+  object-fit:cover;
+}
+
 hr.light{
   border-top: 1px solid #d5d5d5;
   width: 75%;
   margin-top: .8rem;
   margin-bottom: 1rem;
-}
-
-footer a{
-  color: #d5d5d5;
 }
 
 hr.light-100{
@@ -219,7 +243,7 @@ figure {
 }
 
 #fixed {
-  background-image: url('img/background.jpg');
+  background-image: url('img/globalbg.jpg');
   position: fixed;
   display: block;
   top: 0;
@@ -251,6 +275,7 @@ figure {
   .carousel-caption button{
     font-size: 1em;
   }
+
 }
 
 @media (min-width: 768px) {
