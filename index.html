@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#slides">Home</a>
+              <a class="nav-link" href="#home">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
@@ -56,15 +56,15 @@
     <!--- Carousel -->
 
     <div
-      id="slides"
-      class="carousel slide"
+      id="home"
+      class="carousel slide carousel-fade"
       data-ride="carousel"
       data-interval="5000"
     >
       <ol class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1"></li>
-        <li data-target="#slides" data-slide-to="2"></li>
+        <li data-target="#home" data-slide-to="0" class="active"></li>
+        <li data-target="#home" data-slide-to="1"></li>
+        <li data-target="#home" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -100,7 +100,7 @@
         class="carousel-control-prev"
         role="button"
         data-slide="prev"
-        onclick="$('#slides').carousel('prev')"
+        onclick="$('#home').carousel('prev')"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -109,7 +109,7 @@
         class="carousel-control-next"
         role="button"
         data-slide="next"
-        onclick="$('#slides').carousel('next')"
+        onclick="$('#home').carousel('next')"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
@@ -155,25 +155,21 @@
         <div class="row text-center padding">
           <div class="col-md-4">
             <div class="card">
-              <div
-                id="carouselExampleControls"
+              <img class="card-img-top" src="img/service1.jpg" />
+
+              <!--    <div
+                id="snow_removal_carousel_controls"
                 class="carousel slide"
                 data-ride="carousel"
-                data-interval="60000"
               >
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="card-img-top" src="img/service1.jpg" />
+                  <div class="carousel-item active" data-bs-interval="3000">
                   </div>
-                  <div class="carousel-item">
-                    <video controls autoplay>
-                      <source src="video/v1.mp4" type="video/mp4" />
-                    </video>
-                  </div>
+                  <div class="carousel-item" data-bs-interval="117000"></div>
                 </div>
                 <a
                   class="carousel-control-prev"
-                  href="#carouselExampleControls"
+                  href="#snow_removal_carousel_controls"
                   role="button"
                   data-slide="prev"
                 >
@@ -185,7 +181,7 @@
                 </a>
                 <a
                   class="carousel-control-next"
-                  href="#carouselExampleControls"
+                  href="#snow_removal_carousel_controls"
                   role="button"
                   data-slide="next"
                 >
@@ -195,7 +191,7 @@
                   ></span>
                   <span class="sr-only">Next</span>
                 </a>
-              </div>
+              </div> -->
               <div class="card-body">
                 <h4 class="card-title">Snow Removal</h4>
                 <p class="card-text">
@@ -212,6 +208,11 @@
                 <div id="snowremoval" class="collapse">
                   <br />
                   <ul class="list-group">
+                    <li class="list-group0item">
+                      <video class="img-fluid" autoplay loop muted controls>
+                        <source src="video/Snow_removal.mp4" type="video/mp4" />
+                      </video>
+                    </li>
                     <li class="list-group-item">
                       <p>
                         Your commercial property needs to be safe and
@@ -232,7 +233,7 @@
           </div>
           <div class="col-md-4">
             <div class="card">
-              <img class="card-img-top" src="img/hardscaping.jpg" />
+              <img class="card-img-top" src="img/service2.jpg" />
               <div class="card-body">
                 <h4 class="card-title">Hardscaping</h4>
                 <p class="card-text">
