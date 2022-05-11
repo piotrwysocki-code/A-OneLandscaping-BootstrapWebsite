@@ -8,14 +8,14 @@ class QuoteRequest {
     }
 }
 
+function onSubmit(token) {
+    document.getElementById("quote-form").submit();
+}
+
 $(()=>{
     var $root = $('html, body');
 
     $('.image-container').html('');
-
-    function onSubmit(token) {
-        document.getElementById("quote-form").submit();
-     }
 
     for(let i = 0; i < 73; i++){
         $('.image-container').append(`
