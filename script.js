@@ -54,7 +54,6 @@ submitQuoteRequest = (e)=> {
     }).done((results) => {
             console.log(results);
     });
-
 }
 
 quoteBtnClick = () => {
