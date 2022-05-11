@@ -44,7 +44,8 @@ submitQuoteRequest = (e)=> {
         service: service,
         message: message
     };
-
+  
+    
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/send',
