@@ -13,11 +13,15 @@ $(()=>{
 
     $('.image-container').html('');
 
+    function onSubmit(token) {
+        document.getElementById("quote-form").submit();
+     }
+
     for(let i = 0; i < 73; i++){
         $('.image-container').append(`
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="thumbnail">
-                <img src="img/gallery/m${i}.jpg" />
+                <img loading="lazy" src="img/gallery/m${i}.jpg" />
                 </div>
             </div>
         `);

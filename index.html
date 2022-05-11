@@ -15,6 +15,7 @@
     <script src="script.js"></script>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="img/a1-logo.png" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
   </head>
   <body>
     <!-- Nav -->
@@ -156,42 +157,6 @@
           <div class="col-md-4">
             <div class="card">
               <img class="card-img-top" src="img/service1.jpg" />
-
-              <!--    <div
-                id="snow_removal_carousel_controls"
-                class="carousel slide"
-                data-ride="carousel"
-              >
-                <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="3000">
-                  </div>
-                  <div class="carousel-item" data-bs-interval="117000"></div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#snow_removal_carousel_controls"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#snow_removal_carousel_controls"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div> -->
               <div class="card-body">
                 <h4 class="card-title">Snow Removal</h4>
                 <p class="card-text">
@@ -322,7 +287,7 @@
       <div id="quote" class="collapse">
         <div class="container-fluid padding">
           <div class="row text-center justify-content-center">
-            <form class="col-lg-4 col-lg-offset-4">
+            <form class="col-lg-4 col-lg-offset-4 quote-form">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input
@@ -366,20 +331,16 @@
                 <label for="message">Message</label>
                 <textarea class="form-control" id="message" rows="3"></textarea>
               </div>
-              <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="agreement"
-                />
-                <label class="form-check-label" for="agreement"
-                  >I agree to share my information with A1 Landscaping
-                  Inc.</label
-                >
-              </div>
+              <div
+                class="container-fluid d-flex justify-content-center align-items-center"
+              ></div>
+              <br />
               <button
+                class="btn btn-primary g-recaptcha"
+                data-callback="onSubmit"
+                data-sitekey="6Ld1vuEfAAAAANX3CoxEIPPvJXCiyBLNTo-t9qW6"
+                data-action="submit"
                 onclick="submitQuoteRequest(event)"
-                class="btn btn-primary"
               >
                 Submit
               </button>
