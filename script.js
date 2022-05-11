@@ -60,4 +60,5 @@ quoteBtnClick = () => {
     setTimeout(()=>{
         $("#quote").collapse("show");
     }, 500);
+    
 }
