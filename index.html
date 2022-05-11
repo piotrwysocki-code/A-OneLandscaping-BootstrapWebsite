@@ -59,7 +59,7 @@
       id="home"
       class="carousel slide carousel-fade"
       data-ride="carousel"
-      data-interval="5000"
+      data-interval="7500"
     >
       <ol class="carousel-indicators">
         <li data-target="#home" data-slide-to="0" class="active"></li>
@@ -341,6 +341,7 @@
                 class="container-fluid d-flex justify-content-center align-items-center"
               ></div>
               <br />
+              <div id="g-recaptcha-v2"></div>
               <button
                 class="btn btn-primary g-recaptcha"
                 data-callback="onSubmit"
@@ -355,6 +356,7 @@
         </div>
       </div>
     </a>
+
     <!--- Gallery Section -->
     <a id="gallery">
       <div class="container-fluid padding text-center">
@@ -373,16 +375,6 @@
         <hr class="my-4" />
       </div>
     </a>
-
-    <!--- Fixed bg
-
-<figure>
-	<div class="fixed-wrap">
-		<div id="fixed">
-			<hr class="my-4">
-		</div>
-	</div>
-</figure> -->
 
     <!--- Connect -->
     <div class="container-fluid padding" id="connect">
@@ -444,6 +436,12 @@
         </div>
       </div>
     </footer>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCaptcha&render=explicit"
+      async
+      defer
+    ></script>
   </body>
 </html>
 <script src="https://www.google.com/recaptcha/api.js"></script>
