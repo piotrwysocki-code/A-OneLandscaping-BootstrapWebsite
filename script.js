@@ -11,7 +11,7 @@ class QuoteRequest {
 onloadCaptcha = () => {
     grecaptcha.render(
         "g-recaptcha-v2",
-        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
+        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"},
     )
 }
 
@@ -45,7 +45,7 @@ submitQuoteRequest = (e)=> {
         type : 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
-            'Content-type':'application/json'
+            'Content-type':'application/json',
         },
         url : 'http://localhost:4000/verify',
         data: JSON.stringify(response),
