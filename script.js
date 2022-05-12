@@ -146,8 +146,9 @@ submitQuoteRequest = (e)=> {
             },
             error: () => {
                 $(".loading").hide();
-                $(".error-message").text("A server error has occurred, please try again later")
                 $(".error").show("fast");
+                $(".error-message").text("A server error has occurred, please try again later")
+
                 setTimeout(() => {
                 $(".error").hide("slow");
                 }, 4000)
