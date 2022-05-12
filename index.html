@@ -299,7 +299,7 @@
       <div id="quote" class="collapse">
         <div class="container-fluid padding">
           <div class="row text-center justify-content-center">
-            <form class="col-lg-4 col-lg-offset-4 quote-form">
+            <form class="col-lg-4 col-lg-offset-4 need-validation quote-form">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input
@@ -307,6 +307,7 @@
                   class="form-control"
                   id="name"
                   placeholder="Your Name"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -359,6 +360,24 @@
               >
                 Submit
               </button>
+              <div class="error">
+                <img src="img/error.png" />
+                <p id="error-message">
+                  An error has occurrred, please try again later
+                </p>
+              </div>
+              <div
+                class="loading d-flex justify-content-center align-items-center"
+              >
+                <div class="loader"></div>
+              </div>
+              <div class="success">
+                <img src="img/success.png" />
+                <p>
+                  Your message hes been successfuly delieverd, one of our
+                  representatives will be in touch with you shortly
+                </p>
+              </div>
             </form>
           </div>
         </div>

@@ -12,7 +12,6 @@ onSubmit = (token) => {
     document.getElementById("quote-form").submit();
 }
 
-
 onloadCaptcha = () => {
     grecaptcha.render(
         "g-recaptcha-v2",
@@ -44,32 +43,124 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
     let response = grecaptcha.getResponse();
-    console.log(response);
+    let name;
+    let email;
+    let phone;
+    let service
+    let message;
 
-    let name = $("#name").val();
-    let email = $("#email").val();
-    let phone = $("#phone").val();
-    let service = $("#service").val();
-    let message = $("#message").val();
+    if($("#name").val()){
+        name = $("#name").val();
+    }else{
+        $(".error").show("fast");
+        $("#error-message").text("Please fill out all fields")
+        setTimeout(() => {
+            $(".error").hide("slow");
+        }, 4000)
 
-    let formData = {
-        name: name,
-        email: email,
-        phone: phone,
-        service: service,
-        message: message
-    };
-/*
-    $.ajax({
-        type : 'POST',
-        url : 'http://localhost:4000/send',
-        data: formData,
-        dataType : 'json',
-        encode: true
-    }).done((results) => {
-            console.log(results);
-    });
-*/
+        $("#name").focus();
+        return;
+    }
+    
+    if($("#email").val()){
+        email = $("#email").val();
+
+    }else{
+        $(".error").show("fast");
+        $("#error-message").text("Please fill out all fields")
+        setTimeout(() => {
+            $(".error").hide("slow");
+        }, 4000)
+
+        $("#email").focus();
+        return;
+    }
+
+    if($("#phone").val()){
+        phone = $("#phone").val();
+
+    }else{
+        $(".error").show("fast");
+        $("#error-message").text("Please fill out all fields")
+        setTimeout(() => {
+            $(".error").hide("slow");
+        }, 4000)
+
+        $("#phone").focus();
+        return;
+    }
+
+    if($("#service").val()){
+        service = $("#service").val();
+
+    }else{
+        $(".error").show("fast");
+        $("#error-message").text("Please fill out all fields")
+        setTimeout(() => {
+            $(".error").hide("slow");
+        }, 4000)
+
+        $("#service").focus();
+        return;     
+    }
+
+    if($("#message").val()){
+        message = $("#message").val();
+
+    }else{
+        $(".error").show("fast");
+        $("#error-message").text("Please fill out all fields")
+        setTimeout(() => {
+            $(".error").hide("slow");
+        }, 4000)
+
+        $("#message").focus();
+        return;    
+    }
+
+    if(response.length > 0){
+       
+        let formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            service: service,
+            message: message
+        };
+    
+        $.ajax({
+            type : 'POST',
+            url : 'http://localhost:4000',
+            data: formData,
+            dataType : 'json',
+            encode: true,
+            beforeSend: () => {
+                $(".loading").show(1000);
+            },
+            success: (data) => {
+                $(".success").show("fast");
+                setTimeout(() => {
+                    $(".success").hide("slow");
+                }, 4000)
+            },
+            error: () => {
+                $(".loading").hide();
+                $(".error").show("fast");
+                setTimeout(() => {
+                $(".error").hide("slow");
+                }, 4000)
+            },
+            complete: () => {
+                $(".loading").hide();
+            }
+        })
+    }else{
+        $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
+        $(".error").show("fast");
+        setTimeout(() => {
+        $(".error").hide("slow");
+        }, 4000)
+    }
 }
 
 quoteBtnClick = () => {
