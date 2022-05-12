@@ -12,14 +12,17 @@ onSubmit = (token) => {
     document.getElementById("quote-form").submit();
 }
 
+let captchaId;
+
 onloadCaptcha = () => {
-    grecaptcha.render(
+    captchaId = grecaptcha.render(
         "g-recaptcha-v2",
         {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
     )
 }
 
 $(()=>{
+
     var $root = $('html, body');
 
     $('.image-container').html('');
@@ -42,7 +45,7 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
 
-    console.log(grecaptcha.getResponse("g-recaptcha-v2"));
+    console.log(grecaptcha.getResponse(captchaId));
 
     let name = $("#name").val();
     let email = $("#email").val();
