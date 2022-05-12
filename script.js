@@ -12,10 +12,9 @@ onSubmit = (token) => {
     document.getElementById("quote-form").submit();
 }
 
-let captchaId;
 
 onloadCaptcha = () => {
-    captchaId = grecaptcha.render(
+    grecaptcha.render(
         "g-recaptcha-v2",
         {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
     )
@@ -44,6 +43,8 @@ $(()=>{
 
 submitQuoteRequest = (e)=> {
     e.preventDefault();
+    let response = grecaptcha.getResponse();
+    console.log(response);
 
     let name = $("#name").val();
     let email = $("#email").val();
