@@ -8,11 +8,11 @@ class QuoteRequest {
     }
 }
 
-function onSubmit(token) {
+onSubmit = (token) => {
     document.getElementById("quote-form").submit();
 }
 
-const onloadCaptcha = () => {
+onloadCaptcha = () => {
     console.log("grecaptcha is ready!");
 };
 
@@ -69,7 +69,7 @@ quoteBtnClick = () => {
     setTimeout(()=>{
         $("#quote").collapse("show");
     }, 500);
-    
+
     grecaptcha.render(
         "g-recaptcha-v2",
         {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
