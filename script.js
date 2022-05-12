@@ -48,7 +48,7 @@ submitQuoteRequest = (e)=> {
             'Content-type':'application/json'
         },
         url : 'http://localhost:4000/verify',
-        data: response,
+        data: JSON.stringify(response),
         dataType : 'json',
         encode: true,
         success: (data) => {
