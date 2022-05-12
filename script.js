@@ -14,7 +14,7 @@ onSubmit = (token) => {
 
 onloadCaptcha = () => {
     console.log("grecaptcha is ready!");
-};
+}
 
 $(()=>{
     var $root = $('html, body');
