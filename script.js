@@ -52,7 +52,7 @@ submitQuoteRequest = (e)=> {
         dataType : 'json',
         encode: true,
         success: (data) => {
-            
+            console.log(data);
         }
     })
 /*
