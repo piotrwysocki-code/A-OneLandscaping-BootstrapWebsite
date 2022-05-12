@@ -13,7 +13,10 @@ onSubmit = (token) => {
 }
 
 onloadCaptcha = () => {
-    console.log("grecaptcha is ready!");
+    grecaptcha.render(
+        "g-recaptcha-v2",
+        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
+    )
 }
 
 $(()=>{
@@ -69,9 +72,4 @@ quoteBtnClick = () => {
     setTimeout(()=>{
         $("#quote").collapse("show");
     }, 500);
-
-    grecaptcha.render(
-        "g-recaptcha-v2",
-        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"}
-    )
 }
