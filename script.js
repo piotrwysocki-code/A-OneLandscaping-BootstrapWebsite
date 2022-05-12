@@ -59,7 +59,7 @@ submitQuoteRequest = (e)=> {
         service: service,
         message: message
     };
-
+/*
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/send',
@@ -69,7 +69,7 @@ submitQuoteRequest = (e)=> {
     }).done((results) => {
             console.log(results);
     });
-
+*/
 }
 
 quoteBtnClick = () => {
