@@ -43,10 +43,6 @@ submitQuoteRequest = (e)=> {
     console.log(response);
     $.ajax({
         type : 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-type':'application/json',
-        },
         url : 'http://localhost:4000/verify',
         data: JSON.stringify(response),
         dataType : 'json',
