@@ -38,7 +38,7 @@ $(()=>{
 
 submitQuoteRequest = (e)=> {
     e.preventDefault();
-    let response = grecaptcha.getResponse("g-recaptcha-v2");
+    let response = grecaptcha.getResponse();
     let validCaptcha = false;
 
     $.ajax({
