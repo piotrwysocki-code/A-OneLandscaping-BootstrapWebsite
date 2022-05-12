@@ -42,6 +42,8 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
 
+    console.log(grecaptcha.getResponse("g-recaptcha-v2"));
+
     let name = $("#name").val();
     let email = $("#email").val();
     let phone = $("#phone").val();

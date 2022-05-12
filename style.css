@@ -15,8 +15,7 @@ img {
 
 .navbar {
   padding: .8 rem;
-  box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.3);
-
+  box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.2);
 }
 
 .navbar-nav li {
