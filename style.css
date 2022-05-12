@@ -101,6 +101,10 @@ img {
   max-width: 100%;
 }
 
+#g-recaptcha-v2{
+  margin: 20px;
+}
+
 .social a{
   font-size: 4.5rem;
   padding: 3rem;
