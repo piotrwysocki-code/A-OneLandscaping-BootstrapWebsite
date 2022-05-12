@@ -118,8 +118,9 @@ submitQuoteRequest = (e)=> {
         return;    
     }
 
-    if(response.length > 0){
-       
+    console.log(`response length: `, response.length);
+
+    if(response.length > 0){      
         let formData = {
             name: name,
             email: email,
@@ -145,6 +146,7 @@ submitQuoteRequest = (e)=> {
             },
             error: () => {
                 $(".loading").hide();
+                $(".error-message").text("A server error has occurred, please try again later")
                 $(".error").show("fast");
                 setTimeout(() => {
                 $(".error").hide("slow");
