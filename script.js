@@ -8,10 +8,6 @@ class QuoteRequest {
     }
 }
 
-onSubmit = (token) => {
-    document.getElementById("quote-form").submit();
-}
-
 onloadCaptcha = () => {
     grecaptcha.render(
         "g-recaptcha-v2",
@@ -42,7 +38,24 @@ $(()=>{
 
 submitQuoteRequest = (e)=> {
     e.preventDefault();
-    let response = grecaptcha.getResponse();
+    let response = grecaptcha.getResponse("g-recaptcha-v2");
+    let validCaptcha = false;
+
+    $.ajax({
+        type : 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-type':'application/json'
+        },
+        url : 'http://localhost:4000/verify',
+        data: JSON.stringify({response}),
+        dataType : 'json',
+        encode: true,
+        success: (data) => {
+            console.log(data);
+        }
+    })
+/*
     let name;
     let email;
     let phone;
@@ -164,6 +177,7 @@ submitQuoteRequest = (e)=> {
         $(".error").hide("slow");
         }, 4000)
     }
+    */
 }
 
 quoteBtnClick = () => {
