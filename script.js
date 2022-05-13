@@ -102,6 +102,7 @@ submitQuoteRequest = (e)=> {
         };
 
         validCaptcha = verifyCaptcha();
+        console.log(validCaptcha);
 
         if(validCaptcha){
             console.log(validCaptcha);
