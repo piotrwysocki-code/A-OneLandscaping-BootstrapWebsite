@@ -44,7 +44,7 @@ submitQuoteRequest = (e)=> {
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
-        data: JSON.stringify(response),
+        data: JSON.stringify({captcha: response}),
         dataType : 'json',
         encode: true,
         success: (data) => {
