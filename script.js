@@ -118,11 +118,12 @@ submitQuoteRequest = async (e)=> {
                     console.log(data.success);
                 }
             })
+
+            console.log(`1.1`, captchaResponse);
         }catch(error){
             console.log(error);
         }
 
-        console.log(`1.1`, captchaResponse);
 
 /*      captchaResponse.then(
             (value) => {
