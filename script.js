@@ -40,7 +40,7 @@ submitQuoteRequest = (e)=> {
     e.preventDefault();
     let response = grecaptcha.getResponse();
     let validCaptcha = false;
-    let resObj = {captcha: response}
+    let resObj = [{captcha: response}]
     console.log(typeof response);
     $.ajax({
         type : 'POST',
