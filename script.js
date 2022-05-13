@@ -40,11 +40,12 @@ submitQuoteRequest = (e)=> {
     e.preventDefault();
     let response = grecaptcha.getResponse();
     let validCaptcha = false;
+    let resObj = {captcha: response}
     console.log(typeof response);
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
-        data: response,
+        data: JSON.stringify(resObj),
         dataType : 'json',
         encode: true,
         success: (data) => {
