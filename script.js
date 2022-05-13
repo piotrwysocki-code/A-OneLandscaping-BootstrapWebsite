@@ -45,7 +45,7 @@ submitQuoteRequest = (e)=> {
         type : 'POST',
         url : 'http://localhost:4000/verify',
         data: response,
-        dataType : 'json',
+        dataType : 'text/plain',
         encode: true,
         success: (data) => {
             console.log(data);
