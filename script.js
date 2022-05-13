@@ -19,9 +19,17 @@ $(()=>{
 
     var $root = $('html, body');
 
-    $('.image-container').html('');
+    for(let i = 1; i < 9; i++){
+        $('.image-container').append(`
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="thumbnail">
+                <img loading="lazy" src="img/gallery/s${i}.jpg" />
+                </div>
+            </div>
+        `);
+    }
 
-    for(let i = 0; i < 72; i++){
+    for(let i = 0; i < 64; i++){
         $('.image-container').append(`
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="thumbnail">
@@ -183,3 +191,5 @@ showFieldsError = () => {
         $(".error").hide("slow");
     }, 4000)
 }
+
+
