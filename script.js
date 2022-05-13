@@ -174,6 +174,7 @@ verifyCaptcha = () => {
         dataType : 'json',
         encode: true,
         success: (data) => {
+            console.log(data.success);
             result = data.success;
         }
     })
