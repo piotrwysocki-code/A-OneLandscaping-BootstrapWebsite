@@ -101,8 +101,6 @@ submitQuoteRequest = async (e)=> {
             message: message
         };
 
-        console.log(`1. ${validCaptcha}`);
-
         try{
             const captchaResponse = await $.ajax({
                 type : 'POST',
@@ -119,14 +117,12 @@ submitQuoteRequest = async (e)=> {
                 }
             })
 
-            console.log(`1.1`, captchaResponse);
             validCaptcha = captchaResponse.success;
         }catch(error){
             console.log(error);
         }
 
         if(validCaptcha){
-            console.log(`2. ${validCaptcha}`);
             $.ajax({
                 type : 'POST',
                 url : 'http://localhost:4000/send',
@@ -150,11 +146,11 @@ submitQuoteRequest = async (e)=> {
                     setTimeout(() => {
                     $(".error").hide("slow");
                     }, 4000)
-
+                    grecaptcha.reset();
                 },
                 complete: () => {
                     $(".loading").hide();
-                    grecaptcha.clear();
+                    grecaptcha.reset();
                 }
             })
         } else {
@@ -163,6 +159,7 @@ submitQuoteRequest = async (e)=> {
             setTimeout(() => {
             $(".error").hide("slow");
             }, 4000)
+            grecaptcha.reset();
         }
     } else {
         $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
