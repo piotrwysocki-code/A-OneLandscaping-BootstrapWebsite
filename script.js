@@ -102,10 +102,10 @@ submitQuoteRequest = (e)=> {
         };
 
         validCaptcha = verifyCaptcha();
-        console.log(validCaptcha);
+        console.log(`1. ${validCaptcha}`);
 
         if(validCaptcha){
-            console.log(validCaptcha);
+            console.log(`2. ${validCaptcha}`);
             $.ajax({
                 type : 'POST',
                 url : 'http://localhost:4000',
@@ -162,8 +162,7 @@ showFieldsError = () => {
 }
 
 verifyCaptcha = () => {
-    let valid;
-
+    let result;
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
@@ -175,10 +174,9 @@ verifyCaptcha = () => {
         dataType : 'json',
         encode: true,
         success: (data) => {
-            console.log(data.success);
-            valid = data.success;
+            result = data.success;
         }
     })
-
-    return valid;
+    console.log(`verifyCaptcha: result`);
+    return result;
 }
