@@ -135,7 +135,11 @@ submitQuoteRequest = (e)=> {
                 }
             })
         } else {
-
+            $("#error-message").text("Error, invalid reCAPTCHA")
+            $(".error").show("fast");
+            setTimeout(() => {
+            $(".error").hide("slow");
+            }, 4000)
         }
     } else {
         $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
@@ -161,9 +165,8 @@ showFieldsError = () => {
     }, 4000)
 }
 
-verifyCaptcha = () => {
-    let result = false;
-    $.ajax({
+ verifyCaptcha = async () => {
+    const result = await $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
         headers: {
@@ -175,10 +178,9 @@ verifyCaptcha = () => {
         encode: true,
         success: (data) => {
             console.log(data.success);
-            return data.success;
-        },
-        error: () => {
-            return false;
         }
     })
+
+    console.log(result);
+    return result;
 }
