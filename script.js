@@ -89,7 +89,7 @@ submitQuoteRequest = (e)=> {
         return;    
     }
 
-    if(response.length > 0){      
+    if(grecaptcha.getResponse().length > 0){      
         let formData = {
             name: name,
             email: email,
