@@ -115,8 +115,7 @@ submitQuoteRequest = async (e)=> {
                 url : 'https://us-central1-a-onelandscaping-nodeserver.cloudfunctions.net/app/verify',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Content-type': 'application/json'
                 },
                 data: JSON.stringify({captcha: grecaptcha.getResponse()}),
                 dataType : 'json',
