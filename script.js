@@ -125,21 +125,11 @@ submitQuoteRequest = async (e)=> {
             console.log(error);
         }
 
-/*      captchaResponse.then(
-            (value) => {
-                console.log(`captchaResponse:`, value);
-                validCaptcha = value;
-            },
-            (error) => {
-                console.log(error);
-            }
-        );*/
-
         if(validCaptcha){
             console.log(`2. ${validCaptcha}`);
             $.ajax({
                 type : 'POST',
-                url : 'http://localhost:4000',
+                url : 'http://localhost:4000/send',
                 data: formData,
                 dataType : 'json',
                 encode: true,
@@ -160,9 +150,11 @@ submitQuoteRequest = async (e)=> {
                     setTimeout(() => {
                     $(".error").hide("slow");
                     }, 4000)
+
                 },
                 complete: () => {
                     $(".loading").hide();
+                    grecaptcha.clear();
                 }
             })
         } else {
@@ -179,7 +171,6 @@ submitQuoteRequest = async (e)=> {
         $(".error").hide("slow");
         }, 4000)
     }
-    
 }
 
 quoteBtnClick = () => {
@@ -195,23 +186,3 @@ showFieldsError = () => {
         $(".error").hide("slow");
     }, 4000)
 }
-/*
- verifyCaptcha = async () => {
-    const result = await $.ajax({
-        type : 'POST',
-        url : 'http://localhost:4000/verify',
-        headers: {
-            'Accept': 'application/json, text/plain, */ /**',
-            'Content-type': 'application/json'
-        },
-        data: JSON.stringify({captcha: grecaptcha.getResponse()}),
-        dataType : 'json',
-        encode: true,
-        success: (data) => {
-            console.log(data.success);
-        }
-    })
-
-    console.log(result);
-    return result.success;
-}*/
