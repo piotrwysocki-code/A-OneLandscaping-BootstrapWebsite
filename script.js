@@ -39,7 +39,7 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
 
-    let validCaptcha;
+    let validCaptcha = false;
     
     if($("#name").val()){
         name = $("#name").val();
@@ -177,6 +177,6 @@ verifyCaptcha = () => {
             result = data.success;
         }
     })
-    console.log(`verifyCaptcha: result`);
+    console.log(`verifyCaptcha: ${result}`);
     return result;
 }
