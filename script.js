@@ -120,10 +120,10 @@ submitQuoteRequest = async (e)=> {
             })
 
             console.log(`1.1`, captchaResponse);
+            validCaptcha = captchaResponse.success;
         }catch(error){
             console.log(error);
         }
-
 
 /*      captchaResponse.then(
             (value) => {
