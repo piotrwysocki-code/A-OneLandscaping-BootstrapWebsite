@@ -21,7 +21,7 @@ $(()=>{
 
     $('.image-container').html('');
 
-    for(let i = 0; i < 73; i++){
+    for(let i = 0; i < 72; i++){
         $('.image-container').append(`
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="thumbnail">
@@ -39,38 +39,13 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
     let validCaptcha = false;
-
-    $.ajax({
-        type : 'POST',
-        url : 'http://localhost:4000/verify',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-type': 'application/json'
-        },
-        data: JSON.stringify({captcha: grecaptcha.getResponse()}),
-        dataType : 'json',
-        encode: true,
-        success: (data) => {
-            console.log(data);
-        }
-    })
-/*
-    let name;
-    let email;
-    let phone;
-    let service
-    let message;
-
+    
     if($("#name").val()){
         name = $("#name").val();
     }else{
-        $(".error").show("fast");
-        $("#error-message").text("Please fill out all fields")
-        setTimeout(() => {
-            $(".error").hide("slow");
-        }, 4000)
-
+        showFieldsError();
         $("#name").focus();
+
         return;
     }
     
@@ -78,13 +53,9 @@ submitQuoteRequest = (e)=> {
         email = $("#email").val();
 
     }else{
-        $(".error").show("fast");
-        $("#error-message").text("Please fill out all fields")
-        setTimeout(() => {
-            $(".error").hide("slow");
-        }, 4000)
-
+        showFieldsError();  
         $("#email").focus();
+
         return;
     }
 
@@ -92,13 +63,9 @@ submitQuoteRequest = (e)=> {
         phone = $("#phone").val();
 
     }else{
-        $(".error").show("fast");
-        $("#error-message").text("Please fill out all fields")
-        setTimeout(() => {
-            $(".error").hide("slow");
-        }, 4000)
-
+        showFieldsError();
         $("#phone").focus();
+
         return;
     }
 
@@ -106,13 +73,9 @@ submitQuoteRequest = (e)=> {
         service = $("#service").val();
 
     }else{
-        $(".error").show("fast");
-        $("#error-message").text("Please fill out all fields")
-        setTimeout(() => {
-            $(".error").hide("slow");
-        }, 4000)
-
+        showFieldsError();
         $("#service").focus();
+
         return;     
     }
 
@@ -120,17 +83,11 @@ submitQuoteRequest = (e)=> {
         message = $("#message").val();
 
     }else{
-        $(".error").show("fast");
-        $("#error-message").text("Please fill out all fields")
-        setTimeout(() => {
-            $(".error").hide("slow");
-        }, 4000)
-
+        showFieldsError();
         $("#message").focus();
+
         return;    
     }
-
-    console.log(`response length: `, response.length);
 
     if(response.length > 0){      
         let formData = {
@@ -140,47 +97,76 @@ submitQuoteRequest = (e)=> {
             service: service,
             message: message
         };
-    
+
         $.ajax({
             type : 'POST',
-            url : 'http://localhost:4000',
-            data: formData,
+            url : 'http://localhost:4000/verify',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-type': 'application/json'
+            },
+            data: JSON.stringify({captcha: grecaptcha.getResponse()}),
             dataType : 'json',
             encode: true,
-            beforeSend: () => {
-                $(".loading").show(1000);
-            },
             success: (data) => {
-                $(".success").show("fast");
-                setTimeout(() => {
-                    $(".success").hide("slow");
-                }, 4000)
-            },
-            error: () => {
-                $(".loading").hide();
-                $(".error").show("fast");
-                $(".error-message").text("A server error has occurred, please try again later")
-
-                setTimeout(() => {
-                $(".error").hide("slow");
-                }, 4000)
-            },
-            complete: () => {
-                $(".loading").hide();
+                console.log(data);
+                validCaptcha = data.success;
             }
         })
-    }else{
+
+        if(validCaptcha){
+
+            $.ajax({
+                type : 'POST',
+                url : 'http://localhost:4000',
+                data: formData,
+                dataType : 'json',
+                encode: true,
+                beforeSend: () => {
+                    $(".loading").show(1000);
+                },
+                success: (data) => {
+                    $(".success").show("fast");
+                    setTimeout(() => {
+                        $(".success").hide("slow");
+                    }, 4000)
+                },
+                error: () => {
+                    $(".loading").hide();
+                    $(".error").show("fast");
+                    $(".error-message").text("A server error has occurred, please try again later")
+    
+                    setTimeout(() => {
+                    $(".error").hide("slow");
+                    }, 4000)
+                },
+                complete: () => {
+                    $(".loading").hide();
+                }
+            })
+        } else {
+
+        }
+    } else {
         $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
         $(".error").show("fast");
         setTimeout(() => {
         $(".error").hide("slow");
         }, 4000)
     }
-    */
+    
 }
 
 quoteBtnClick = () => {
     setTimeout(()=>{
         $("#quote").collapse("show");
     }, 500);
+}
+
+showFieldsError = () => {
+    $(".error").show("fast");
+    $("#error-message").text("Please fill out all fields")
+    setTimeout(() => {
+        $(".error").hide("slow");
+    }, 4000)
 }
