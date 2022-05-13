@@ -39,7 +39,7 @@ $(()=>{
 submitQuoteRequest = (e)=> {
     e.preventDefault();
 
-    let validCaptcha = false;
+    let validCaptcha;
     
     if($("#name").val()){
         name = $("#name").val();
@@ -162,7 +162,8 @@ showFieldsError = () => {
 }
 
 verifyCaptcha = () => {
-    let valid = false;
+    let valid;
+
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
@@ -174,7 +175,7 @@ verifyCaptcha = () => {
         dataType : 'json',
         encode: true,
         success: (data) => {
-            console.log(data);
+            console.log(data.success);
             valid = data.success;
         }
     })
