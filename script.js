@@ -36,7 +36,7 @@ $(()=>{
     });
 });
 
-submitQuoteRequest = (e)=> {
+submitQuoteRequest = async (e)=> {
     e.preventDefault();
 
     let validCaptcha = false;
@@ -101,8 +101,38 @@ submitQuoteRequest = (e)=> {
             message: message
         };
 
-        validCaptcha = verifyCaptcha();
         console.log(`1. ${validCaptcha}`);
+
+        try{
+            const captchaResponse = await $.ajax({
+                type : 'POST',
+                url : 'http://localhost:4000/verify',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-type': 'application/json'
+                },
+                data: JSON.stringify({captcha: grecaptcha.getResponse()}),
+                dataType : 'json',
+                encode: true,
+                success: (data) => {
+                    console.log(data.success);
+                }
+            })
+        }catch(error){
+            console.log(error);
+        }
+
+        console.log(`1.1`, captchaResponse);
+
+/*      captchaResponse.then(
+            (value) => {
+                console.log(`captchaResponse:`, value);
+                validCaptcha = value;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );*/
 
         if(validCaptcha){
             console.log(`2. ${validCaptcha}`);
@@ -164,13 +194,13 @@ showFieldsError = () => {
         $(".error").hide("slow");
     }, 4000)
 }
-
+/*
  verifyCaptcha = async () => {
     const result = await $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
         headers: {
-            'Accept': 'application/json, text/plain, */*',
+            'Accept': 'application/json, text/plain, */ /**',
             'Content-type': 'application/json'
         },
         data: JSON.stringify({captcha: grecaptcha.getResponse()}),
@@ -183,4 +213,4 @@ showFieldsError = () => {
 
     console.log(result);
     return result.success;
-}
+}*/
