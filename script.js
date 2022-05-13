@@ -102,10 +102,10 @@ submitQuoteRequest = (e)=> {
         };
 
         validCaptcha = verifyCaptcha();
-        console.log(`1. ${validCaptcha.success}`);
+        console.log(`1. ${validCaptcha}`);
 
         if(validCaptcha){
-            console.log(`2. ${validCaptcha.success}`);
+            console.log(`2. ${validCaptcha}`);
             $.ajax({
                 type : 'POST',
                 url : 'http://localhost:4000',
@@ -182,5 +182,5 @@ showFieldsError = () => {
     })
 
     console.log(result);
-    return result;
+    return result.success;
 }
