@@ -38,14 +38,13 @@ $(()=>{
 
 submitQuoteRequest = (e)=> {
     e.preventDefault();
-    let response = grecaptcha.getResponse();
     let validCaptcha = false;
-    let captcha = {captcha: response}
+
     console.log(typeof captcha);
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
-        data: JSON.stringify({resObj: captcha}),
+        data: JSON.stringify({captcha: grecaptcha.getResponse()}),
         dataType : 'json',
         encode: true,
         success: (data) => {
