@@ -162,7 +162,7 @@ showFieldsError = () => {
 }
 
 verifyCaptcha = () => {
-    let result;
+    let result = false;
     $.ajax({
         type : 'POST',
         url : 'http://localhost:4000/verify',
