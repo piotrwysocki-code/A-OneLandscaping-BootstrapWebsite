@@ -175,9 +175,10 @@ verifyCaptcha = () => {
         encode: true,
         success: (data) => {
             console.log(data.success);
-            result = data.success;
+            return data.success;
+        },
+        error: () => {
+            return false;
         }
     })
-    console.log(`verifyCaptcha: ${result}`);
-    return result;
 }
