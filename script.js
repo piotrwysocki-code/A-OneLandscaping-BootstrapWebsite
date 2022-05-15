@@ -121,7 +121,7 @@ submitQuoteRequest = async (e)=> {
                 dataType : 'json',
                 encode: true,
                 success: (data) => {
-                    console.log(data.success);
+                    console.log(data);
                 }
             })
 
