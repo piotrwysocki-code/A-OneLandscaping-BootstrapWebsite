@@ -141,14 +141,14 @@ submitQuoteRequest = async (e)=> {
                     $(".loading").show(1000);
                 },
                 success: (data) => {
-                    $(".error").hide("fast");
+                    $(".error").hide();
                     $(".success").show("fast");
                     setTimeout(() => {
                         $(".success").hide("slow");
                     }, 4000)
                 },
                 error: () => {
-                    $(".error").hide("fast");
+                    $(".error").hide();
                     $(".loading").hide();
                     $(".error").show("fast");
                     $(".error-message").text("A server error has occurred, please try again later")
@@ -164,7 +164,7 @@ submitQuoteRequest = async (e)=> {
                 }
             })
         } else {
-            $(".error").hide("fast");
+            $(".error").hide();
             $("#error-message").text("Error, invalid reCAPTCHA")
             $(".error").show("fast");
             setTimeout(() => {
@@ -173,7 +173,7 @@ submitQuoteRequest = async (e)=> {
             grecaptcha.reset();
         }
     } else {
-        $(".error").hide("fast");
+        $(".error").hide();
         $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
         $(".error").show("fast");
         setTimeout(() => {
@@ -189,7 +189,7 @@ quoteBtnClick = () => {
 }
 
 showFieldsError = () => {
-    $(".error").hide("fast");
+    $(".error").hide();
     $(".error").show("fast");
     $("#error-message").text("Please fill out all fields")
     setTimeout(() => {
