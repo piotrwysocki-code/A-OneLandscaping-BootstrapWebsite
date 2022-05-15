@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #222;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -13,7 +14,9 @@ img {
   pointer-events: none;
 }
 
-.error, .success, .captcha-error{
+.error,
+.success,
+.captcha-error {
   display: none;
   margin: 15px;
 }
@@ -30,26 +33,25 @@ img {
 }
 
 .navbar {
-  padding: .8 rem;
-  box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.2);
+  padding: 0.8 rem;
+  box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-nav li {
   padding-right: 20px;
 }
 
-.nav-link{
+.nav-link {
   font-size: 1.1em !important;
 }
 
-.carousel-inner img{
+.carousel-inner img {
   width: 100%;
   height: 100%;
   margin: auto;
 }
 
-.image-container{
-
+.image-container {
 }
 
 .carousel-caption {
@@ -59,17 +61,18 @@ img {
   bottom: initial;
 }
 
-.carousel-control-prev, .carousel-control-next{
+.carousel-control-prev,
+.carousel-control-next {
   cursor: pointer;
 }
 
-.carousel-caption h1{
+.carousel-caption h1 {
   font-size: 500%;
   text-transform: uppercase;
   text-shadow: 1px 1px 15px #000;
 }
 
-.carousel-caption h3{
+.carousel-caption h3 {
   font-size: 200%;
   font-weight: 500;
   text-shadow: 1px 1px 10px #000;
@@ -86,29 +89,29 @@ img {
   border: 1px solid #00963f;
 }
 
-.jumbotron{
+.jumbotron {
   padding: 1rem;
   border-radius: 0;
 }
 
-.padding{
+.padding {
   padding-bottom: 2rem;
 }
 
-.welcome{
+.welcome {
   width: 75%;
   margin: 0 auto;
-  padding-top: 2rem
+  padding-top: 2rem;
 }
 
-.welcome hr{
+.welcome hr {
   border-top: 2px solid #b4b4b4;
   width: 95%;
-  margin-top: .3 rem;
+  margin-top: 0.3 rem;
   margin-bottom: 1rem;
 }
 
-.quote{
+.quote {
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -117,11 +120,11 @@ img {
   max-width: 100%;
 }
 
-#g-recaptcha-v2{
+#g-recaptcha-v2 {
   margin: 20px;
 }
 
-.social a{
+.social a {
   font-size: 4.5rem;
   padding: 3rem;
 }
@@ -138,46 +141,52 @@ img {
   color: #dd4b39;
 }
 
-.fa-facebook:hover, .fa-twitter:hover, .fa-instagram:hover {
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-instagram:hover {
   color: #d5d5d5;
 }
 
-footer{
+footer {
   background-color: #3f3f3f;
   color: #d5d5d5;
   padding-top: 2rem;
 }
 
-footer a{
+footer a {
   color: #d5d5d5;
 }
 
-.thumbnail{
+.thumbnail {
 }
 
-.thumbnail img{
+.thumbnail img {
   width: 100%;
   height: 400px;
-  object-fit:cover;
+  object-fit: cover;
 }
 
-hr.light{
+hr.light {
   border-top: 1px solid #d5d5d5;
   width: 75%;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-bottom: 1rem;
 }
 
-hr.light-100{
+hr.light-100 {
   border-top: 1px solid #d5d5d5;
   width: 100%;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-bottom: 1rem;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -185,7 +194,7 @@ hr.light-100{
     top: 45%;
   }
 
-  .carousel-caption h1{
+  .carousel-caption h1 {
     font-size: 350%;
   }
 
@@ -200,7 +209,7 @@ hr.light-100{
     padding: 8px 14px;
   }
 
-  .display-4{
+  .display-4 {
     font-size: 200%;
   }
 
@@ -208,16 +217,14 @@ hr.light-100{
     font-size: 4em;
     padding: 2rem;
   }
-
 }
 
 @media (max-width: 992px) {
-
   .carousel-caption {
     top: 45%;
   }
 
-  .carousel-caption h1{
+  .carousel-caption h1 {
     font-size: 250%;
   }
 
@@ -232,7 +239,7 @@ hr.light-100{
     padding: 8px 14px;
   }
 
-  .display-4{
+  .display-4 {
     font-size: 200%;
   }
 
@@ -240,14 +247,13 @@ hr.light-100{
     font-size: 4em;
     padding: 2rem;
   }
-
 }
 @media (max-width: 768px) {
   .carousel-caption {
     top: 45%;
   }
 
-  .carousel-caption h1{
+  .carousel-caption h1 {
     font-size: 200%;
   }
 
@@ -262,11 +268,11 @@ hr.light-100{
     padding: 8px 14px;
   }
 
-  .display-4{
+  .display-4 {
     font-size: 200%;
   }
 
-  .social a{
+  .social a {
     font-size: 2.5em;
     padding: 1.2rem;
   }
@@ -276,9 +282,8 @@ hr.light-100{
     top: 40%;
   }
 
-  .carousel-caption h1{
+  .carousel-caption h1 {
     font-size: 175%;
-
   }
 
   .carousel-caption h3 {
@@ -289,11 +294,11 @@ hr.light-100{
     font-size: 100%;
     padding: 4px 8px;
   }
-  .display-4{
+  .display-4 {
     font-size: 160%;
   }
 
-  .social a{
+  .social a {
     font-size: 2em;
     padding: 7rem;
   }
@@ -311,7 +316,7 @@ figure {
   position: relative;
   width: 100%;
   height: 60%;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 .fixed-wrap {
@@ -324,22 +329,17 @@ figure {
 }
 
 [class*="col-"] {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-
 @media (min-width: 576px) {
-
 }
 
 @media (min-width: 768px) {
 }
 
-
 @media (min-width: 992px) {
-
 }
 
 @media (min-width: 1200px) {
-
 }
