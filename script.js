@@ -145,7 +145,7 @@ submitQuoteRequest = async (e)=> {
                     $(".success").show("fast");
                     setTimeout(() => {
                         $(".success").hide("slow");
-                    }, 4000)
+                    }, 5000)
                 },
                 error: () => {
                     $(".error").hide();
@@ -155,7 +155,7 @@ submitQuoteRequest = async (e)=> {
     
                     setTimeout(() => {
                     $(".error").hide("slow");
-                    }, 4000)
+                    }, 5000)
                     grecaptcha.reset();
                 },
                 complete: () => {
@@ -169,7 +169,7 @@ submitQuoteRequest = async (e)=> {
             $(".error").show("fast");
             setTimeout(() => {
             $(".error").hide("slow");
-            }, 4000)
+            }, 5000)
             grecaptcha.reset();
         }
     } else {
@@ -178,7 +178,7 @@ submitQuoteRequest = async (e)=> {
         $(".error").show("fast");
         setTimeout(() => {
         $(".error").hide("slow");
-        }, 4000)
+        }, 5000)
     }
 }
 
@@ -194,7 +194,7 @@ showFieldsError = () => {
     $("#error-message").text("Please fill out all fields")
     setTimeout(() => {
         $(".error").hide("slow");
-    }, 4000)
+    }, 5000)
 }
 
 
