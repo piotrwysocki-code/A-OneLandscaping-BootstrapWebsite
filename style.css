@@ -16,20 +16,23 @@ img {
 
 .error,
 .success,
-.captcha-error,
-.loading {
+.captcha-error {
   display: none;
   margin: 15px;
 }
 
+.loading{
+  display: none !important;
+}
+
 .loader {
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #00ff11; /* Blue */
+  border: 6px solid #e0e0e0; /* Light grey */
+  border-top: 6px solid #0091ff; /* Blue */
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin: 15px;
-  animation: spin 2s linear infinite;
+  width: 40px;
+  height: 40px;
+  margin-top: 35px;
+  animation: spin 1s linear infinite;
 }
 
 .navbar {
