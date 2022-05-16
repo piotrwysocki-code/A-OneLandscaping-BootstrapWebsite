@@ -142,6 +142,7 @@ submitQuoteRequest = async (e)=> {
                 },
                 success: (data) => {
                     $(".error").hide();
+                    $(".loading").hide();
                     $(".success").show("fast");
                     setTimeout(() => {
                         $(".success").hide("slow");

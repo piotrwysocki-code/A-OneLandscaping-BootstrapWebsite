@@ -16,13 +16,13 @@ img {
 
 .error,
 .success,
-.captcha-error {
+.captcha-error,
+.loading {
   display: none;
   margin: 15px;
 }
 
 .loader {
-  display: none;
   border: 5px solid #f3f3f3; /* Light grey */
   border-top: 5px solid #00ff11; /* Blue */
   border-radius: 50%;
