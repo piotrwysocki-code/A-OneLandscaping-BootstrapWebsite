@@ -55,9 +55,6 @@ img {
   margin: auto;
 }
 
-.image-container {
-}
-
 .carousel-caption {
   position: absolute;
   top: 50%;
@@ -146,7 +143,6 @@ img {
 }
 
 .fa-facebook:hover,
-.fa-twitter:hover,
 .fa-instagram:hover {
   color: #d5d5d5;
 }
@@ -159,9 +155,6 @@ footer {
 
 footer a {
   color: #d5d5d5;
-}
-
-.thumbnail {
 }
 
 .thumbnail img {
