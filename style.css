@@ -15,8 +15,7 @@ img {
 }
 
 .error,
-.success,
-.captcha-error {
+.success {
   display: none;
   margin: 15px;
 }

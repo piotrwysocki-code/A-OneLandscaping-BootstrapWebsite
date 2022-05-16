@@ -46,13 +46,14 @@ $(()=>{
 
 submitQuoteRequest = async (e)=> {
     e.preventDefault();
-
+    let timer; 
     let validCaptcha = false;
     
     if($("#name").val()){
         name = $("#name").val();
     }else{
-        showFieldsError();
+        clearTimeout(timer);
+        timer = showFieldsError();
         $("#name").focus();
 
         return;
@@ -62,7 +63,8 @@ submitQuoteRequest = async (e)=> {
         email = $("#email").val();
 
     }else{
-        showFieldsError();  
+        clearTimeout(timer);
+        timer = showFieldsError();  
         $("#email").focus();
 
         return;
@@ -72,7 +74,8 @@ submitQuoteRequest = async (e)=> {
         phone = $("#phone").val();
 
     }else{
-        showFieldsError();
+        clearTimeout(timer);
+        timer = showFieldsError();
         $("#phone").focus();
 
         return;
@@ -82,7 +85,8 @@ submitQuoteRequest = async (e)=> {
         service = $("#service").val();
 
     }else{
-        showFieldsError();
+        clearTimeout(timer);
+        timer = showFieldsError();
         $("#service").focus();
 
         return;     
@@ -92,7 +96,8 @@ submitQuoteRequest = async (e)=> {
         message = $("#message").val();
 
     }else{
-        showFieldsError();
+        clearTimeout(timer);
+        timer = showFieldsError();
         $("#message").focus();
 
         return;    
@@ -124,7 +129,6 @@ submitQuoteRequest = async (e)=> {
                     console.log(data);
                 }
             })
-
             validCaptcha = captchaResponse.success;
         }catch(error){
             console.log(error);
@@ -138,25 +142,29 @@ submitQuoteRequest = async (e)=> {
                 dataType : 'json',
                 encode: true,
                 beforeSend: () => {
-                    $(".loading").show(500);
+                    $(".loading").toggle(true);
                 },
                 success: (data) => {
-                    $(".error").hide();
                     $(".loading").hide();
-                    $(".success").show("fast");
+                    $(".error").hide();
+
+                    $(".success").toggle(true);
+
                     setTimeout(() => {
                         $(".success").hide("slow");
                     }, 5000)
                 },
                 error: () => {
-                    $(".error").hide();
+                    clearTimeout(timer);
+
                     $(".loading").hide();
-                    $(".error").show("fast");
-                    $(".error-message").text("A server error has occurred, please try again later")
+                    $(".error").toggle(true);
     
-                    setTimeout(() => {
+                    $(".error-message").text("A server error has occurred, please try again later");
+                    timer = setTimeout(() => {
                     $(".error").hide("slow");
                     }, 5000)
+
                     grecaptcha.reset();
                 },
                 complete: () => {
@@ -165,19 +173,28 @@ submitQuoteRequest = async (e)=> {
                 }
             })
         } else {
-            $(".error").hide();
+            clearTimeout(timer);
+
+            $(".loading").hide();
+            $(".error").toggle(true);
+
             $("#error-message").text("Error, invalid reCAPTCHA")
-            $(".error").show("fast");
-            setTimeout(() => {
+
+            timer = setTimeout(() => {
             $(".error").hide("slow");
             }, 5000)
+
             grecaptcha.reset();
         }
     } else {
-        $(".error").hide();
+        clearTimeout(timer);
+
+        $(".loading").hide();
+        $(".error").toggle(true);
+
         $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
-        $(".error").show("fast");
-        setTimeout(() => {
+
+        timer = setTimeout(() => {
         $(".error").hide("slow");
         }, 5000)
     }
@@ -190,10 +207,9 @@ quoteBtnClick = () => {
 }
 
 showFieldsError = () => {
-    $(".error").hide();
-    $(".error").show("fast");
+    $(".error").toggle(true);
     $("#error-message").text("Please fill out all fields")
-    setTimeout(() => {
+    return setTimeout(() => {
         $(".error").hide("slow");
     }, 5000)
 }
