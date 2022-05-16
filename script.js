@@ -46,6 +46,8 @@ $(()=>{
 
 submitQuoteRequest = async (e)=> {
     e.preventDefault();
+    $(".error").toggle(false);
+
     let timer; 
     let validCaptcha = false;
     
@@ -128,6 +130,9 @@ submitQuoteRequest = async (e)=> {
                 encode: true,
                 success: (data) => {
                     console.log(data);
+                },
+                complete: () => {
+                    grecaptcha.reset();
                 }
             })
             validCaptcha = captchaResponse.success;
@@ -164,12 +169,9 @@ submitQuoteRequest = async (e)=> {
                     timer = setTimeout(() => {
                     $(".error").hide("slow");
                     }, 5000)
-
-                    grecaptcha.reset();
                 },
                 complete: () => {
                     $(".loading").hide();
-                    grecaptcha.reset();
                 }
             })
         } else {
@@ -183,8 +185,6 @@ submitQuoteRequest = async (e)=> {
             timer = setTimeout(() => {
             $(".error").hide("slow");
             }, 5000)
-
-            grecaptcha.reset();
         }
     } else {
         clearTimeout(timer);
