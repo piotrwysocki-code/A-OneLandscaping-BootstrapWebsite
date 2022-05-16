@@ -138,7 +138,7 @@ submitQuoteRequest = async (e)=> {
                 dataType : 'json',
                 encode: true,
                 beforeSend: () => {
-                    $(".loading").show(1000);
+                    $(".loading").show(500);
                 },
                 success: (data) => {
                     $(".error").hide();
