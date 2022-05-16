@@ -105,6 +105,7 @@ submitQuoteRequest = async (e)=> {
 
     if(grecaptcha.getResponse().length > 0){  
         console.log(grecaptcha.getResponse().length);
+        $(".loading").toggle(true);
 
         let formData = {
             name: name,
@@ -142,7 +143,6 @@ submitQuoteRequest = async (e)=> {
                 dataType : 'json',
                 encode: true,
                 beforeSend: () => {
-                    $(".loading").toggle(true);
                 },
                 success: (data) => {
                     $(".loading").hide();
