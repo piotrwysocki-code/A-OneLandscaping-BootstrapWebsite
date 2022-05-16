@@ -10,6 +10,10 @@ body {
   scroll-behavior: smooth;
 }
 
+#top-jumbo{
+  margin-bottom: 0
+}
+
 img {
   pointer-events: none;
 }
@@ -114,7 +118,6 @@ img {
 
 .quote {
   width: 100%;
-  margin-bottom: 2rem;
 }
 
 .gif {
@@ -207,7 +210,7 @@ hr.light-100 {
   }
 
   .display-4 {
-    font-size: 200%;
+    font-size: 300%;
   }
 
   .social {
@@ -237,7 +240,7 @@ hr.light-100 {
   }
 
   .display-4 {
-    font-size: 200%;
+    font-size: 250%;
   }
 
   .social {
@@ -266,7 +269,7 @@ hr.light-100 {
   }
 
   .display-4 {
-    font-size: 200%;
+    font-size: 225%;
   }
 
   .social a {
@@ -292,7 +295,7 @@ hr.light-100 {
     padding: 4px 8px;
   }
   .display-4 {
-    font-size: 160%;
+    font-size: 200%;
   }
 
   .social a {
