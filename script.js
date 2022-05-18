@@ -120,7 +120,7 @@ submitQuoteRequest = async (e)=> {
         try{
             const captchaResponse = await $.ajax({
                 type : 'POST',
-                url : 'https://us-central1-a-onelandscaping-server.cloudfunctions.net/app/verify',
+                url : 'http://localhost:4000/verify',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-type': 'application/json'
@@ -143,7 +143,7 @@ submitQuoteRequest = async (e)=> {
         if(validCaptcha){
             $.ajax({
                 type : 'POST',
-                url : 'https://us-central1-a-onelandscaping-server.cloudfunctions.net/app/send',
+                url : 'http://localhost:4000/',
                 data: formData,
                 dataType : 'json',
                 encode: true,
