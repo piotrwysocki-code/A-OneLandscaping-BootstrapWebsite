@@ -121,10 +121,6 @@ submitQuoteRequest = async (e)=> {
             const captchaResponse = await $.ajax({
                 type : 'POST',
                 url : 'https://us-central1-a-onelandscaping-server.cloudfunctions.net/app/verify',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-type': 'application/json'
-                },
                 data: JSON.stringify({captcha: grecaptcha.getResponse()}),
                 dataType : 'json',
                 encode: true,
