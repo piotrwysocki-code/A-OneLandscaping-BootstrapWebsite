@@ -8,16 +8,32 @@ class QuoteRequest {
     }
 }
 
+onloadCaptcha = () => {
+    grecaptcha.render(
+        "g-recaptcha-v2",
+        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"},
+    )
+}
+
 $(()=>{
+
     var $root = $('html, body');
 
-    $('.image-container').html('');
-
-    for(let i = 0; i < 73; i++){
+    for(let i = 1; i < 9; i++){
         $('.image-container').append(`
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="thumbnail">
-                <img src="img/gallery/m${i}.jpg" />
+                <img loading="lazy" src="img/gallery/s${i}.jpg" />
+                </div>
+            </div>
+        `);
+    }
+
+    for(let i = 0; i < 64; i++){
+        $('.image-container').append(`
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="thumbnail">
+                <img loading="lazy" src="img/gallery/m${i}.jpg" />
                 </div>
             </div>
         `);
@@ -28,38 +44,174 @@ $(()=>{
     });
 });
 
-submitQuoteRequest = (e)=> {
+submitQuoteRequest = async (e)=> {
     e.preventDefault();
+    $(".error").toggle(false);
 
-    let name = $("#name").val();
-    let email = $("#email").val();
-    let phone = $("#phone").val();
-    let service = $("#service").val();
-    let message = $("#message").val();
-
-    let formData = {
-        name: name,
-        email: email,
-        phone: phone,
-        service: service,
-        message: message
-    };
-  
+    let timer; 
+    let validCaptcha = false;
     
-    $.ajax({
-        type : 'POST',
-        url : 'http://localhost:4000/send',
-        data: formData,
-        dataType : 'json',
-        encode: true
-    }).done((results) => {
-            console.log(results);
-    });
+    if($("#name").val()){
+        name = $("#name").val();
+    }else{
+        clearTimeout(timer);
+        timer = showFieldsError();
+        $("#name").focus();
+
+        return;
+    }
+    
+    if($("#email").val()){
+        email = $("#email").val();
+
+    }else{
+        clearTimeout(timer);
+        timer = showFieldsError();  
+        $("#email").focus();
+
+        return;
+    }
+
+    if($("#phone").val()){
+        phone = $("#phone").val();
+
+    }else{
+        clearTimeout(timer);
+        timer = showFieldsError();
+        $("#phone").focus();
+
+        return;
+    }
+
+    if($("#service").val()){
+        service = $("#service").val();
+
+    }else{
+        clearTimeout(timer);
+        timer = showFieldsError();
+        $("#service").focus();
+
+        return;     
+    }
+
+    if($("#message").val()){
+        message = $("#message").val();
+
+    }else{
+        clearTimeout(timer);
+        timer = showFieldsError();
+        $("#message").focus();
+
+        return;    
+    }
+
+    if(grecaptcha.getResponse().length > 0){  
+        console.log(grecaptcha.getResponse().length);
+        $(".loading").toggle(true);
+
+        let formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            service: service,
+            message: message
+        };
+
+        try{
+            const captchaResponse = await $.ajax({
+                type : 'POST',
+                url : 'http://localhost:4000/verify',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-type': 'application/json'
+                },
+                data: JSON.stringify({captcha: grecaptcha.getResponse()}),
+                dataType : 'json',
+                encode: true,
+                success: (data) => {
+                    console.log(data);
+                },
+                complete: () => {
+                    grecaptcha.reset();
+                }
+            })
+            validCaptcha = captchaResponse.success;
+        }catch(error){
+            console.log(error);
+        }
+
+        if(validCaptcha){
+            $.ajax({
+                type : 'POST',
+                url : 'http://localhost:4000/send',
+                data: formData,
+                dataType : 'json',
+                encode: true,
+                beforeSend: () => {
+                },
+                success: (data) => {
+                    $(".loading").hide();
+                    $(".error").hide();
+
+                    $(".success").toggle(true);
+
+                    setTimeout(() => {
+                        $(".success").hide("slow");
+                    }, 5000)
+                },
+                error: () => {
+                    clearTimeout(timer);
+
+                    $(".loading").hide();
+                    $(".error").toggle(true);
+    
+                    $(".error-message").text("A server error has occurred, please try again later");
+                    timer = setTimeout(() => {
+                    $(".error").hide("slow");
+                    }, 5000)
+                },
+                complete: () => {
+                    $(".loading").hide();
+                }
+            })
+        } else {
+            clearTimeout(timer);
+
+            $(".loading").hide();
+            $(".error").toggle(true);
+
+            $("#error-message").text("Error, invalid reCAPTCHA")
+
+            timer = setTimeout(() => {
+            $(".error").hide("slow");
+            }, 5000)
+        }
+    } else {
+        clearTimeout(timer);
+
+        $(".loading").hide();
+        $(".error").toggle(true);
+
+        $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
+
+        timer = setTimeout(() => {
+        $(".error").hide("slow");
+        }, 5000)
+    }
 }
 
 quoteBtnClick = () => {
     setTimeout(()=>{
         $("#quote").collapse("show");
     }, 500);
-    
 }
+
+showFieldsError = () => {
+    $(".error").toggle(true);
+    $("#error-message").text("Please fill out all fields")
+    return setTimeout(() => {
+        $(".error").hide("slow");
+    }, 5000)
+}
+
+
