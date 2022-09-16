@@ -18,6 +18,8 @@ onloadCaptcha = () => {
 
 $(()=>{
 
+    onloadCaptcha();
+
     $("#submitQuoteRequestBtn").on('click', ()=> {
         console.log('clicked');
         submitQuoteRequest();
@@ -76,12 +78,11 @@ submitQuoteRequest = () => {
             success: (data)=>{
                 console.log(data);
             },
-            error: (data)=>{
-                console.log(data);
+            error: (error)=>{
+                console.log(error);
             },
         }).done((results) => {
-            console.log(results.data);
-
+            console.log(results);
             if(results.Success){
                 grecaptcha.reset();
                 console.log("success!");
