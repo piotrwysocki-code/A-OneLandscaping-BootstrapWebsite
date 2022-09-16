@@ -10,7 +10,7 @@ body {
   color: #222;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-padding-top: 65px;
+  scroll-padding-top: 100px;
 }
 
 #about{
