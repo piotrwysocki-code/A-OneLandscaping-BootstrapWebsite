@@ -1,17 +1,27 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700,800,900,1000");
+
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   font-family: "Poppins", sans-serif;
+  margin: 0;
   color: #222;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: 65px;
+}
+
+#about{
 }
 
 #top-jumbo{
   margin-bottom: 0
+}
+
+.btn-box{
+  gap:1rem;
 }
 
 img {
@@ -26,7 +36,6 @@ img {
 
 .loading{
   display: none;
-
   padding-top: 30px;
 }
 
@@ -53,10 +62,14 @@ img {
   font-size: 1.1em !important;
 }
 
+.carousel {
+  height: 100vh;
+}
+
 .carousel-inner img {
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .carousel-caption {
@@ -72,26 +85,32 @@ img {
 }
 
 .carousel-caption h1 {
-  font-size: 500%;
   text-transform: uppercase;
   text-shadow: 1px 1px 15px #000;
+  font-weight: 500;
 }
 
 .carousel-caption h3 {
-  font-size: 200%;
   font-weight: 500;
   text-shadow: 1px 1px 10px #000;
   padding-bottom: 1rem;
 }
 
+.btn {
+  text-decoration: none;
+  border: none;
+}
+
 .btn-primary {
-  background-color: #00c251;
-  border: 1px solid #00c251;
+  background-color: rgba(50, 175, 50, 1);
+  backdrop-filter: blur(2px);
+  border-radius: 15px 15px 15px 15px;
+
 }
 
 .btn-primary:hover {
-  background-color: #00963f;
-  border: 1px solid #00963f;
+  background-color: rgba(20, 195, 10, 1);
+  backdrop-filter: blur(5px);
 }
 
 .jumbotron {
@@ -99,8 +118,17 @@ img {
   border-radius: 0;
 }
 
+.main-btn{
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+}
+
 .padding {
   padding-bottom: 2rem;
+}
+
+.projects-btn{
+
 }
 
 .welcome {
@@ -118,6 +146,15 @@ img {
 
 .quote {
   width: 100%;
+}
+
+#quoteForm{
+  background-color: rgba(0, 120, 20, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 10%, rgba(0, 0, 0, 0) 59%, rgba(255, 255, 255, 1) 90%), url('img/lawn.jpg'), no-repeat;
+  background-clip: border-box;
+  background-size: cover;
+  height: 100vh;
+  padding: 3rem;
 }
 
 .gif {
@@ -190,14 +227,6 @@ hr.light-100 {
 }
 
 @media (max-width: 1200px) {
-  .carousel-caption {
-    top: 45%;
-  }
-
-  .carousel-caption h1 {
-    font-size: 350%;
-  }
-
   .carousel-caption h3 {
     font-size: 150%;
     text-shadow: 1px 1px 10px #000;
@@ -220,13 +249,6 @@ hr.light-100 {
 }
 
 @media (max-width: 992px) {
-  .carousel-caption {
-    top: 45%;
-  }
-
-  .carousel-caption h1 {
-    font-size: 250%;
-  }
 
   .carousel-caption h3 {
     font-size: 130%;
@@ -249,14 +271,6 @@ hr.light-100 {
   }
 }
 @media (max-width: 768px) {
-  .carousel-caption {
-    top: 45%;
-  }
-
-  .carousel-caption h1 {
-    font-size: 200%;
-  }
-
   .carousel-caption h3 {
     font-size: 115%;
     text-shadow: 1px 1px 10px #000;
@@ -283,7 +297,7 @@ hr.light-100 {
   }
 
   .carousel-caption h1 {
-    font-size: 175%;
+   /* font-size: 175%;*/
   }
 
   .carousel-caption h3 {
@@ -295,7 +309,7 @@ hr.light-100 {
     padding: 4px 8px;
   }
   .display-4 {
-    font-size: 200%;
+    /*font-size: 200%;*/
   }
 
   .social a {

@@ -1,10 +1,11 @@
 class QuoteRequest {
-    constructor(name, email, phone, service, message){
+    constructor(name, email, phone, service, message, captcha){
         this.name = name;
         this.email = email;
-        this.phone = phone;
         this.service = service;
+        this.phone = phone;
         this.message = message;
+        this.captcha = captcha
     }
 }
 
@@ -16,6 +17,15 @@ onloadCaptcha = () => {
 }
 
 $(()=>{
+
+    $("#submitQuoteRequestBtn").on('click', ()=> {
+        console.log('clicked');
+        submitQuoteRequest();
+    });
+    
+    $('.navbar-nav>li>a').on('click', ()=> {
+        $('.navbar-collapse').collapse('hide');
+    });
 
     var $root = $('html, body');
 
@@ -44,160 +54,114 @@ $(()=>{
     });
 });
 
-submitQuoteRequest = async (e)=> {
-    e.preventDefault();
-    $(".error").toggle(false);
+submitQuoteRequest = () => {
+    console.log('hello');
 
-    let timer; 
-    let validCaptcha = false;
-    
-    if($("#name").val()){
-        name = $("#name").val();
+    window.event.preventDefault;
+    let connectObj = validateForm();
+    console.log(connectObj);
+
+    if(connectObj){
+        $(".loader").html(`
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        `);
+        console.log('hello2');
+        $.ajax({
+            type : 'POST',
+            url : 'https://us-central1-staging-a-onelandscaping.cloudfunctions.net/app/send',
+            data: connectObj,
+            dataType : 'json',
+            encode: true
+        }).done((results) => {
+            if(results.Success){
+                grecaptcha.reset();
+                console.log("success!");
+              /*  $("#name, #email, #subject, #message").val('').removeClass('is-valid is-invalid');
+                $("#success-message").html(`Your message has been successfully delivered, a confirmation email has been sent to ${connectObj.email}`).fadeIn("slow");
+                setTimeout(()=>{
+                    $("#success-message").fadeOut("slow").html('');
+                }, 15000)
+                $("#submitConnectForm").html(`Send`);*/
+            }else{
+                grecaptcha.reset();
+                /*$("#captcha-failed").fadeIn("slow");
+                setTimeout(()=>{
+                    $("#captcha-failed").fadeOut("fast");
+                }, 30000);
+                $("#submitConnectForm").html(`Send`);*/
+            }
+        });
+    }
+}
+
+
+ validateForm = () =>{
+    let connectObj = new QuoteRequest(
+        $("#name").val() || '',
+        $("#email").val() || '',
+        $("#phone").val() || '',
+        $("#service").val() || '',
+        $("#message").val() || '',
+        grecaptcha.getResponse() || '');
+
+    let validFields = [];
+
+    console.log(connectObj);
+
+    if(connectObj.name != ''){
+        $("#name").addClass('is-valid');
+        validFields.push(true);
     }else{
-        clearTimeout(timer);
-        timer = showFieldsError();
-        $("#name").focus();
-
-        return;
+        $("#name").addClass('is-invalid');
+        validFields.push(false);
     }
-    
-    if($("#email").val()){
-        email = $("#email").val();
 
+    if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(connectObj.email)){
+        $("#email").addClass('is-valid');
+        validFields.push(true);
     }else{
-        clearTimeout(timer);
-        timer = showFieldsError();  
-        $("#email").focus();
-
-        return;
+        $("#email").addClass('is-invalid');
+        validFields.push(false);
     }
 
-    if($("#phone").val()){
-        phone = $("#phone").val();
-
+    if(connectObj.subject != ''){
+        $("#phone").addClass('is-valid');
+        validFields.push(true);
     }else{
-        clearTimeout(timer);
-        timer = showFieldsError();
-        $("#phone").focus();
-
-        return;
+        $("#phone").addClass('is-invalid');
+        validFields.push(false);
     }
 
-    if($("#service").val()){
-        service = $("#service").val();
-
+    if(connectObj.service != '' && connectObj.service != 4){
+        $("#service").addClass('is-valid');
+        validFields.push(true);
     }else{
-        clearTimeout(timer);
-        timer = showFieldsError();
-        $("#service").focus();
-
-        return;     
+        $("#service").addClass('is-invalid');
+        validFields.push(false);
     }
 
-    if($("#message").val()){
-        message = $("#message").val();
-
+    if(connectObj.message != ''){
+        $("#message").addClass('is-valid');
+        validFields.push(true);
     }else{
-        clearTimeout(timer);
-        timer = showFieldsError();
-        $("#message").focus();
+        $("#message").addClass('is-invalid');
+        validFields.push(false);
+    }
+/*
+    if(connectObj.captcha != ''){
+        validFields.push(true);
+    }else{
+        $("#captcha-info").fadeIn('slow');
+        validFields.push(false);
+    }*/
 
-        return;    
+    if(validFields.includes(false)){
+        connectObj = null;
     }
 
-    if(grecaptcha.getResponse().length > 0){  
-        console.log(grecaptcha.getResponse().length);
-        $(".loading").toggle(true);
-
-        let formData = {
-            name: name,
-            email: email,
-            phone: phone,
-            service: service,
-            message: message
-        };
-
-        try{
-            const captchaResponse = await $.ajax({
-                type : 'POST',
-                url : 'http://localhost:4000/verify',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-type': 'application/json'
-                },
-                data: JSON.stringify({captcha: grecaptcha.getResponse()}),
-                dataType : 'json',
-                encode: true,
-                success: (data) => {
-                    console.log(data);
-                },
-                complete: () => {
-                    grecaptcha.reset();
-                }
-            })
-            validCaptcha = captchaResponse.success;
-        }catch(error){
-            console.log(error);
-        }
-
-        if(validCaptcha){
-            $.ajax({
-                type : 'POST',
-                url : 'http://localhost:4000/send',
-                data: formData,
-                dataType : 'json',
-                encode: true,
-                beforeSend: () => {
-                },
-                success: (data) => {
-                    $(".loading").hide();
-                    $(".error").hide();
-
-                    $(".success").toggle(true);
-
-                    setTimeout(() => {
-                        $(".success").hide("slow");
-                    }, 5000)
-                },
-                error: () => {
-                    clearTimeout(timer);
-
-                    $(".loading").hide();
-                    $(".error").toggle(true);
-    
-                    $(".error-message").text("A server error has occurred, please try again later");
-                    timer = setTimeout(() => {
-                    $(".error").hide("slow");
-                    }, 5000)
-                },
-                complete: () => {
-                    $(".loading").hide();
-                }
-            })
-        } else {
-            clearTimeout(timer);
-
-            $(".loading").hide();
-            $(".error").toggle(true);
-
-            $("#error-message").text("Error, invalid reCAPTCHA")
-
-            timer = setTimeout(() => {
-            $(".error").hide("slow");
-            }, 5000)
-        }
-    } else {
-        clearTimeout(timer);
-
-        $(".loading").hide();
-        $(".error").toggle(true);
-
-        $("#error-message").text("Error, please prove your are not a bot by completing the reCAPTCHA")
-
-        timer = setTimeout(() => {
-        $(".error").hide("slow");
-        }, 5000)
-    }
+    return connectObj;
 }
 
 quoteBtnClick = () => {
