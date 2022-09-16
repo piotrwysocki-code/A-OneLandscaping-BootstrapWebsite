@@ -149,13 +149,13 @@ submitQuoteRequest = () => {
         $("#message").addClass('is-invalid');
         validFields.push(false);
     }
-/*
+
     if(connectObj.captcha != ''){
         validFields.push(true);
     }else{
         $("#captcha-info").fadeIn('slow');
         validFields.push(false);
-    }*/
+    }
 
     if(validFields.includes(false)){
         connectObj = null;
