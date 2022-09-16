@@ -18,8 +18,6 @@ onloadCaptcha = () => {
 
 $(()=>{
 
-    onloadCaptcha();
-
     $("#submitQuoteRequestBtn").on('click', ()=> {
         console.log('clicked');
         submitQuoteRequest();
