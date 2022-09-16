@@ -127,9 +127,12 @@ img {
   padding-bottom: 2rem;
 }
 
+.projects-btn{
 
-#emailHelp {
-  color: white;
+}
+
+#emailHelp{
+  color:white !important;
 }
 
 .welcome {

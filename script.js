@@ -56,8 +56,6 @@ $(()=>{
 
 submitQuoteRequest = () => {
     console.log('hello');
-
-    window.event.preventDefault;
     let connectObj = validateForm();
     console.log(connectObj);
 
@@ -68,13 +66,22 @@ submitQuoteRequest = () => {
             </div>
         `);
         console.log('hello2');
+
         $.ajax({
             type : 'POST',
             url : 'https://us-central1-staging-a-onelandscaping.cloudfunctions.net/app/send',
             data: connectObj,
             dataType : 'json',
-            encode: true
+            encode: true,
+            success: (data)=>{
+                console.log(data);
+            },
+            error: (data)=>{
+                console.log(data);
+            },
         }).done((results) => {
+            console.log(results.data);
+
             if(results.Success){
                 grecaptcha.reset();
                 console.log("success!");
@@ -86,13 +93,17 @@ submitQuoteRequest = () => {
                 $("#submitConnectForm").html(`Send`);*/
             }else{
                 grecaptcha.reset();
+                console.log("fail!");
+
                 /*$("#captcha-failed").fadeIn("slow");
                 setTimeout(()=>{
                     $("#captcha-failed").fadeOut("fast");
                 }, 30000);
                 $("#submitConnectForm").html(`Send`);*/
             }
-        });
+
+        })
+
     }
 }
 
@@ -126,7 +137,7 @@ submitQuoteRequest = () => {
         validFields.push(false);
     }
 
-    if(connectObj.subject != ''){
+    if(connectObj.phone != ''){
         $("#phone").addClass('is-valid');
         validFields.push(true);
     }else{
@@ -149,13 +160,13 @@ submitQuoteRequest = () => {
         $("#message").addClass('is-invalid');
         validFields.push(false);
     }
-
+/*
     if(connectObj.captcha != ''){
         validFields.push(true);
     }else{
         $("#captcha-info").fadeIn('slow');
         validFields.push(false);
-    }
+    }*/
 
     if(validFields.includes(false)){
         connectObj = null;
