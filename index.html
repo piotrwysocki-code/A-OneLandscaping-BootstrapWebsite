@@ -292,6 +292,7 @@
                     placeholder="Your Name"
                     required
                   />
+                  <div class="invalid-feedback">Please enter a name</div>
                 </div>
                 <div class="form-group">
                   <label for="email">Email address</label>
@@ -303,16 +304,18 @@
                     placeholder="Enter email"
                     required
                   />
+                  <div class="invalid-feedback">Enter a properly formatted email address (e.g. email@email.ca)</div>
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
                   <input
-                    type="number"
+                    type="phone"
                     class="form-control"
                     id="phone"
                     placeholder="Phone No."
                     required
                   />
+                  <div class="invalid-feedback">Please provide a valid phone number</div>
                 </div>
                 <div class="form-group">
                   <label for="service">Service</label>
@@ -322,6 +325,7 @@
                     <option value="1">Hardscaping</option>
                     <option value="2">Snow Removal</option>
                   </select>
+                  <div class="invalid-feedback">Please select relevant service</div>
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
@@ -331,6 +335,7 @@
                     rows="3"
                     required
                   ></textarea>
+                  <div class="invalid-feedback">Include a brief message</div>
                 </div>
                 <small id="emailHelp" class="form-text text-muted"
                 >We'll never share your information with anyone else.</small
