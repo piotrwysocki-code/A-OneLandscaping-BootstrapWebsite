@@ -23,7 +23,6 @@ onloadCaptcha = () => {
 $(()=>{
 
     $("#submitQuoteRequestBtn").on('click', ()=> {
-        console.log('clicked');
         submitQuoteRequest();
     });
     
@@ -59,9 +58,7 @@ $(()=>{
 });
 
 submitQuoteRequest = () => {
-    console.log('hello');
     let connectObj = validateForm();
-    console.log(connectObj);
 
     if(connectObj){
         $("#submitQuoteRequestBtn").html(`
@@ -69,7 +66,6 @@ submitQuoteRequest = () => {
                 <span class="visually-hidden">Loading...</span>
             </div>
         `);
-        console.log('hello2');
 
         $.ajax({
             type : 'POST',
@@ -78,10 +74,8 @@ submitQuoteRequest = () => {
             dataType : 'json',
             encode: true,
             success: (data)=>{
-                console.log(data);
             },
             error: (error)=>{
-                console.log(error);
             },
         }).done((results) => {
             console.log(results);
@@ -123,8 +117,6 @@ submitQuoteRequest = () => {
         grecaptcha.getResponse() || '');
 
     let validFields = [];
-
-    console.log(connectObj);
 
     if(connectObj.name != ''){
         $("#name").addClass('is-valid');
