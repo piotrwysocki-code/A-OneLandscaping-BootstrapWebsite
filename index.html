@@ -89,7 +89,6 @@
               <div class="d-flex justify-content-center flex-column flex-md-row align-items-center btn-box">
                 <a href="#quoteForm">
                 <button
-                  onclick="quoteBtnClick()"
                   class="btn btn-primary btn-lg main-btn fs-3"
                   >Request Quote</button
                 ></a>
@@ -343,23 +342,12 @@
                   id="g-recaptcha-v2"
                   class="d-flex justify-content-center align-items-center"
                 ></div>
-
-                <div class="error">
-                  <img src="img/error.png" />
-                  <p id="error-message">
-                  </p>
-                </div>
-                <div
-                  class="loading"
-                >
-                  <div class="loader"></div>
-                </div>
-                <div class="success">
-                  <img src="img/success.png" />
-                  <p>
-                    Your message hes been successfuly delivered. One of our
-                    representatives will be in touch with you shortly
-                  </p>
+                <div class="text-center mb-3 d-flex-column">
+                  <small id="captcha-expired">reCAPTCHA has expired</small>
+                  <small id="captcha-error">Network connectivity error</small>
+                  <small id="captcha-info">Please complete the reCAPTCHA</small>
+                  <small id="captcha-failed">Captcha verification failed</small>
+                  <small id="message"></small>
                 </div>
               </form>
                 <button

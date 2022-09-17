@@ -60,7 +60,7 @@ submitQuoteRequest = () => {
     console.log(connectObj);
 
     if(connectObj){
-        $(".loader").html(`
+        $("#submitQuoteRequestBtn").html(`
             <div class="spinner-border text-info" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -84,21 +84,21 @@ submitQuoteRequest = () => {
             if(results.Success){
                 grecaptcha.reset();
                 console.log("success!");
-              /*  $("#name, #email, #subject, #message").val('').removeClass('is-valid is-invalid');
-                $("#success-message").html(`Your message has been successfully delivered, a confirmation email has been sent to ${connectObj.email}`).fadeIn("slow");
+                $("#name, #email, #phone, #service, #message").val('').removeClass('is-valid is-invalid');
+                $("#message").html(`Your message has been successfully delivered, a confirmation email has been sent to ${connectObj.email}`).fadeIn("slow");
                 setTimeout(()=>{
-                    $("#success-message").fadeOut("slow").html('');
+                    $("#message").fadeOut("slow").html('');
                 }, 15000)
-                $("#submitConnectForm").html(`Send`);*/
+                $("#submitQuoteRequestBtn").html(`Send`);
             }else{
                 grecaptcha.reset();
                 console.log("fail!");
 
-                /*$("#captcha-failed").fadeIn("slow");
+                $("#captcha-failed").fadeIn("slow");
                 setTimeout(()=>{
                     $("#captcha-failed").fadeOut("fast");
                 }, 30000);
-                $("#submitConnectForm").html(`Send`);*/
+                $("#submitConnectForm").html(`Send`);
             }
 
         })
@@ -159,13 +159,13 @@ submitQuoteRequest = () => {
         $("#message").addClass('is-invalid');
         validFields.push(false);
     }
-/*
+
     if(connectObj.captcha != ''){
         validFields.push(true);
     }else{
         $("#captcha-info").fadeIn('slow');
         validFields.push(false);
-    }*/
+    }
 
     if(validFields.includes(false)){
         connectObj = null;
@@ -174,18 +174,26 @@ submitQuoteRequest = () => {
     return connectObj;
 }
 
-quoteBtnClick = () => {
+function captchaError(){
+    $("#captcha-info, #captcha-error, #captcha-expired, #captcha-failed, #success-message").hide();
+    console.log('captcha network error');
     setTimeout(()=>{
-        $("#quote").collapse("show");
-    }, 500);
+        grecaptcha.reset();
+        $("#captcha-error").fadeIn('slow');
+    }, 30000)
 }
 
-showFieldsError = () => {
-    $(".error").toggle(true);
-    $("#error-message").text("Please fill out all fields")
-    return setTimeout(() => {
-        $(".error").hide("slow");
-    }, 5000)
+function captchaExpired(){
+    $("#captcha-info, #captcha-error, #captcha-expired, #captcha-failed, #success-message").hide();
+    console.log('captcha expired');
+    grecaptcha.reset();
+    $("#captcha-expired").fadeIn('slow');
 }
+
+function captchaComplete(){
+    console.log('captcha complete');
+    $("#captcha-info, #captcha-error, #captcha-expired, #captcha-failed, #success-message").fadeOut('fast');
+}
+
 
 
