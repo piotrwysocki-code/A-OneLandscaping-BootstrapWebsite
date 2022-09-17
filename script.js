@@ -112,6 +112,8 @@ submitQuoteRequest = () => {
 
 
  validateForm = () =>{
+    $("#name, #email, #phone, #service, #message").removeClass('is-valid is-invalid');
+
     let connectObj = new QuoteRequest(
         $("#name").val() || '',
         $("#email").val() || '',
