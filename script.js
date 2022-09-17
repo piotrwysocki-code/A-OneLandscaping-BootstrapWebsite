@@ -20,20 +20,6 @@ onloadCaptcha = () => {
     )
 }
 
-$( "#phone" ).change(() => {
-    let val = '';
-
-    if($('#phone').val().length == 3){
-        val = `${$('#phone').val()}-`
-    }
-    if($('#phone').val().length == 7){
-        val = `${$('#phone').val()}-`
-    }
-
-    $('#phone').val(val);
-
- });
-
 $(()=>{
 
     $("#submitQuoteRequestBtn").on('click', ()=> {
