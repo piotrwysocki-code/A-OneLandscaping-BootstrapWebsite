@@ -349,6 +349,17 @@ figure {
   height: 100%;
 }
 
+
+#captcha-info, #captcha-expired, #captcha-error, #captcha-failed{
+  color:Red !important;
+  display: none;
+}
+
+#success-message{
+  color: limegreen !important;
+  display: none;
+}
+
 [class*="col-"] {
   padding: 1rem;
 }

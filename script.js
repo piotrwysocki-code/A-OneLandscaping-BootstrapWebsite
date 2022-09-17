@@ -85,9 +85,9 @@ submitQuoteRequest = () => {
                 grecaptcha.reset();
                 console.log("success!");
                 $("#name, #email, #phone, #service, #message").val('').removeClass('is-valid is-invalid');
-                $("#message").html(`Your message has been successfully delivered, a confirmation email has been sent to ${connectObj.email}`).fadeIn("slow");
+                $("#success-message").html(`Your message has been successfully delivered, a confirmation email has been sent to ${connectObj.email}`).fadeIn("slow");
                 setTimeout(()=>{
-                    $("#message").fadeOut("slow").html('');
+                    $("#success-message").fadeOut("slow").html('');
                 }, 15000)
                 $("#submitQuoteRequestBtn").html(`Send`);
             }else{
