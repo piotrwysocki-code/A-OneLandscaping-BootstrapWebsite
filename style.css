@@ -360,11 +360,6 @@ figure {
   display: none;
 }
 
-#submitQuoteRequestbtn{
-  max-width: 15rem;
-  min-width: fit-content;
-}
-
 [class*="col-"] {
   padding: 1rem;
 }
