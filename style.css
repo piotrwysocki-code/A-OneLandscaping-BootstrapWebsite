@@ -351,13 +351,18 @@ figure {
 
 
 #captcha-info, #captcha-expired, #captcha-error, #captcha-failed{
-  color:Red !important;
+  color:red !important;
   display: none;
 }
 
 #success-message{
-  color: limegreen !important;
+  color: white !important;
   display: none;
+}
+
+#submitQuoteRequestbtn{
+  max-width: 15rem;
+  min-width: fit-content;
 }
 
 [class*="col-"] {
