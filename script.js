@@ -13,6 +13,13 @@ class QuoteRequest {
     }
 }
 
+onloadCaptcha = () => {
+    grecaptcha.render(
+        "g-recaptcha-v2",
+        {"sitekey": "6LeB9uEfAAAAALODOEe0Bh3nq1oVgNby0c5udARl"},
+    )
+}
+
 $(()=>{
 
     $("#submitQuoteRequestBtn").on('click', ()=> {
