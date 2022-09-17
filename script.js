@@ -134,7 +134,7 @@ submitQuoteRequest = () => {
         validFields.push(false);
     }
 
-    if(connectObj.phone != '' && (/^[0-9]+$/).test(connectObj.phone)){
+    if(connectObj.phone != '' && (/\d/).test(connectObj.phone)){
         $("#phone").addClass('is-valid');
         validFields.push(true);
     }else{
