@@ -329,6 +329,9 @@ figure {
 }
 
 @media (min-width: 576px) {
+  body, html{
+    scroll-padding-top: 100px;
+  }
 }
 
 @media (min-width: 768px) {
