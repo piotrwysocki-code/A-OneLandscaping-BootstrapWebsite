@@ -34,21 +34,19 @@ $(()=>{
 
     for(let i = 1; i < 9; i++){
         $('.image-container').append(`
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="thumbnail">
-                <img loading="lazy" src="img/gallery/s${i}.jpg" />
-                </div>
+        <div class="col-xxl-3 col-xl-4 col-md-6 img-fluid img-card">
+                <img loading="lazy" src="img/gallery/s${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
+                />
             </div>
         `);
     }
 
     for(let i = 0; i < 64; i++){
         $('.image-container').append(`
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="thumbnail">
-                <img loading="lazy" src="img/gallery/m${i}.jpg" />
-                </div>
-            </div>
+        <div class="col-xxl-3 col-xl-4 col-md-6 img-fluid img-card">
+        <img loading="lazy" src="img/gallery/m${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
+            />
+        </div>
         `);
     }
 
@@ -69,14 +67,10 @@ submitQuoteRequest = () => {
 
         $.ajax({
             type : 'POST',
-            url : 'https://us-central1-staging-a-onelandscaping.cloudfunctions.net/app/send',
+            url : 'http://localhost:5000/staging-a-onelandscaping/us-central1/app/send',
             data: connectObj,
             dataType : 'json',
-            encode: true,
-            success: (data)=>{
-            },
-            error: (error)=>{
-            },
+            encode: true
         }).done((results) => {
             console.log(results);
             if(results.Success){
@@ -142,7 +136,7 @@ submitQuoteRequest = () => {
         validFields.push(false);
     }
 
-    if(connectObj.service != '' && connectObj.service != 4){
+    if(connectObj.service != '' && connectObj.service != 0){
         $("#service").addClass('is-valid');
         validFields.push(true);
     }else{

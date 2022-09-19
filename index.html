@@ -81,7 +81,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="" src="img/bg1.jpg" />
-          <div class="carousel-caption">
+          <div class="carousel-caption d-flex flex-column justify-content-center flex-column align-items-center">
             <h1 class="display-1">A-One</h1>
             <h1 class="display-2">Landscaping</h1>
             <br>
@@ -97,19 +97,18 @@
         </div>
         <div class="carousel-item">
           <img class="" src="img/bg.jpg" />
-          <div class="carousel-caption">
+          <div class="carousel-caption d-flex flex-column justify-content-center flex-column align-items-center">
             <h1 class="display-1">Relax</h1>
             <h1 class="display-4">LET US DO THE YARD WORK</h2>
-              <a href="#about"><button class="btn btn-primary btn-lg main-btn fs-2">About Us</button></a>
-
+              <a href="#about"><button class="btn btn-primary btn-lg main-btn fs-3">About Us</button></a>
           </div>
         </div>
         <div class="carousel-item">
           <img class="" src="img/bg3.jpg" />
-          <div class="carousel-caption">
+          <div class="carousel-caption d-flex flex-column justify-content-center flex-column align-items-center">
             <h1 class="display-1">Peace of Mind</h1>
             <h1 class="display-4">ALL YEAR ROUND</h2>
-            <a href="#services"><button class="btn btn-primary btn-lg main-btn fs-2">View Services</button></a>
+            <a href="#services"><button class="btn btn-primary btn-lg main-btn fs-3">View Services</button></a>
           </div>
         </div>
       </div>
@@ -129,8 +128,8 @@
         <div class="col-12 text-center">
           <img src="img/a1-logo.png" style="max-height:10rem;"/>
           <h1 class="display-2 main-title-text fw-normal">A-One Landscaping</h1>
-          <h2 class="display-5 fw-normal">Doing it right, the first time.</h2>
-          <p class="fs-3">
+          <h2 class="display-5 fw-normal fs-3">Doing it right, the first time.</h2>
+          <p class="fs-4">
             At A-One Landscaping, we focus on results because we understand
             that the customer is at the heart of our business. Compassion and
             empathy drive everything we do, that's why we strive to act like a
@@ -144,244 +143,248 @@
     </div>
 
     <!--- Services Section -->
-      <div class="row text-center" id="services">
+    <div class="container-fluid" id="services">
+      <div class="row text-center" >
         <div class="col-12">
           <h1 class="display-1">Services</h1>
         </div>
       </div>
-      <div class="container-fluid">
-        <div class="row text-center">
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="img/service1.jpg" />
-              <div class="card-body">
-                <h4 class="card-title">Snow Removal</h4>
-                <p class="card-text">
-                  More than just lawn care <br />
-                  We offer year-round property maintenance services
-                </p>
-                <button
-                  class="btn btn-primary"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#snowremoval"
-                >
-                  See More
-                </button>
-                <div id="snowremoval" class="collapse">
-                  <br />
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <video
-                        class="img-fluid"
-                        loading="lazy"
-                        autoplay
-                        loop
-                        muted
-                        controls
-                      >
-                        <source src="video/Snow_removal.mp4" type="video/mp4" />
-                      </video>
-                    </li>
-                    <li class="list-group-item">
-                      <p>
-                        Your commercial property needs to be safe and
-                        accessible. Hiring our snow and ice management team
-                        means peace of mind, knowing that your business and your
-                        customers will be cared for and will have access to the
-                        services they need no matter the weather.
-                      </p>
-                    </li>
-                    <li class="list-group-item">Residential and Commercial</li>
-                    <li class="list-group-item">Snow Plowing</li>
-                    <li class="list-group-item">Sidewalk Clearing</li>
-                    <li class="list-group-item">Salting and Ice Prevention</li>
-                  </ul>
-                </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="img/service1.jpg" />
+            <div class="card-body">
+              <h4 class="card-title">Snow Removal</h4>
+              <p class="card-text">
+                More than just lawn care <br />
+                We offer year-round property maintenance services
+              </p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="collapse"
+                data-bs-target="#snowremoval"
+              >
+                See More
+              </button>
+              <div id="snowremoval" class="collapse">
+                <br />
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <video
+                      class="img-fluid"
+                      loading="lazy"
+                      autoplay
+                      loop
+                      muted
+                      controls
+                    >
+                      <source src="video/Snow_removal.mp4" type="video/mp4" />
+                    </video>
+                  </li>
+                  <li class="list-group-item">
+                    <p>
+                      Your commercial property needs to be safe and
+                      accessible. Hiring our snow and ice management team
+                      means peace of mind, knowing that your business and your
+                      customers will be cared for and will have access to the
+                      services they need no matter the weather.
+                    </p>
+                  </li>
+                  <li class="list-group-item">Residential and Commercial</li>
+                  <li class="list-group-item">Snow Plowing</li>
+                  <li class="list-group-item">Sidewalk Clearing</li>
+                  <li class="list-group-item">Salting and Ice Prevention</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="img/service2.jpg" />
-              <div class="card-body">
-                <h4 class="card-title">Hardscaping</h4>
-                <p class="card-text">
-                  Transform your space<br />
-                  Make the outdoors feel like an extension of your home
-                </p>
-                <button
-                  class="btn btn-primary"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#hardscaping"
-                >
-                  See More
-                </button>
-                <div id="hardscaping" class="collapse">
-                  <br />
-                  <ul class="list-group">
-                    <li class="list-group-item">Retaining walls</li>
-                    <li class="list-group-item">Patios & walkways</li>
-                    <li class="list-group-item">Stairs</li>
-                    <li class="list-group-item">Pool areas</li>
-                    <li class="list-group-item">Landscape construction</li>
-                    <li class="list-group-item">Stone walls</li>
-                    <li class="list-group-item">Driveways</li>
-                    <li class="list-group-item">Masonry services</li>
-                    <li class="list-group-item">Outdoor fireplaces</li>
-                    <li class="list-group-item">Outdoor kitches</li>
-                    <li class="list-group-item">Custom structures</li>
-                  </ul>
-                </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="img/service2.jpg" />
+            <div class="card-body">
+              <h4 class="card-title">Hardscaping</h4>
+              <p class="card-text">
+                Transform your space<br />
+                Make the outdoors feel like an extension of your home
+              </p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="collapse"
+                data-bs-target="#hardscaping"
+              >
+                See More
+              </button>
+              <div id="hardscaping" class="collapse">
+                <br />
+                <ul class="list-group">
+                  <li class="list-group-item">Retaining walls</li>
+                  <li class="list-group-item">Patios & walkways</li>
+                  <li class="list-group-item">Stairs</li>
+                  <li class="list-group-item">Pool areas</li>
+                  <li class="list-group-item">Landscape construction</li>
+                  <li class="list-group-item">Stone walls</li>
+                  <li class="list-group-item">Driveways</li>
+                  <li class="list-group-item">Masonry services</li>
+                  <li class="list-group-item">Outdoor fireplaces</li>
+                  <li class="list-group-item">Outdoor kitches</li>
+                  <li class="list-group-item">Custom structures</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="img/service3.jpg" />
-              <div class="card-body">
-                <h4 class="card-title">Landscaping</h4>
-                <p class="card-text">
-                  A yard that lives up to its full potential<br />Our expert
-                  service is unmatched
-                </p>
-                <button
-                  class="btn btn-primary"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#landscaping"
-                >
-                  See More
-                </button>
-                <div id="landscaping" class="collapse">
-                  <br />
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      Lawn & Landscape Maintenance
-                    </li>
-                    <li class="list-group-item">
-                      Landscape Design and Installation
-                    </li>
-                    <li class="list-group-item">Seasonal Cleanup</li>
-                    <li class="list-group-item">Mulch Installation</li>
-                    <li class="list-group-item">
-                      Seeding & Fertilization Treatments
-                    </li>
-                    <li class="list-group-item">Core Aeration</li>
-                    <li class="list-group-item">Sod Installation</li>
-                    <li class="list-group-item">Tree Trimming & Removal</li>
-                    <li class="list-group-item">Bush Hogging</li>
-                    <li class="list-group-item">Debris Removal</li>
-                  </ul>
-                </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="img/service3.jpg" />
+            <div class="card-body">
+              <h4 class="card-title">Landscaping</h4>
+              <p class="card-text">
+                A yard that lives up to its full potential<br />Our expert
+                service is unmatched
+              </p>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="collapse"
+                data-bs-target="#landscaping"
+              >
+                See More
+              </button>
+              <div id="landscaping" class="collapse">
+                <br />
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Lawn & Landscape Maintenance
+                  </li>
+                  <li class="list-group-item">
+                    Landscape Design and Installation
+                  </li>
+                  <li class="list-group-item">Seasonal Cleanup</li>
+                  <li class="list-group-item">Mulch Installation</li>
+                  <li class="list-group-item">
+                    Seeding & Fertilization Treatments
+                  </li>
+                  <li class="list-group-item">Core Aeration</li>
+                  <li class="list-group-item">Sod Installation</li>
+                  <li class="list-group-item">Tree Trimming & Removal</li>
+                  <li class="list-group-item">Bush Hogging</li>
+                  <li class="list-group-item">Debris Removal</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="quoteForm" class="container-fluid text-center">
-        <div class="quote-form-inner">
-          <h3 class="display-4">Need a Quote?</h3>
-          <div class="row container-fluid padding text-center justify-content-center">
-            <div class="col-lg-4 col-lg-offset-4">
-              <form class="needs-validation quote-form">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    placeholder="Your Name"
-                    required
-                  />
-                  <div class="invalid-feedback">Please enter a name</div>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter email"
-                    required
-                  />
-                  <div class="invalid-feedback">Enter a properly formatted email address (e.g. email@email.ca)</div>
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="phone"
-                    placeholder="Phone No."
-                    required
-                  />
-                  <div class="invalid-feedback">Please provide a valid phone number</div>
-                </div>
-                <div class="form-group">
-                  <label for="service">Service</label>
-                  <select class="form-select" id="service" required>
-                    <option value="4" selected></option>
-                    <option value="0">Landscaping</option>
-                    <option value="1">Hardscaping</option>
-                    <option value="2">Snow Removal</option>
-                  </select>
-                  <div class="invalid-feedback">Please select relevant service</div>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea
-                    class="form-control"
-                    id="message"
-                    rows="3"
-                    required
-                  ></textarea>
-                  <div class="invalid-feedback">Include a brief message</div>
-                </div>
-                <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your information with anyone else.</small
-                >
-                <div
-                  class="container-fluid d-flex justify-content-center align-items-center"
-                ></div>
-                <div
-                  id="g-recaptcha-v2"
-                  class="g-recaptcha d-flex justify-content-center align-items-center"
-                  data-expired-callback="captchaExpired"
-                  data-error-callback="captchaError"
-                  data-callback="captchaComplete"
-                ></div>
-                <div class="text-center mb-3 d-flex-column">
-                  <small id="captcha-expired">reCAPTCHA has expired</small>
-                  <small id="captcha-error">Network connectivity error</small>
-                  <small id="captcha-info">Please complete the reCAPTCHA</small>
-                  <small id="captcha-failed">Captcha verification failed</small>
-                  <small id="success-message"></small>
-                </div>
-              </form>
-                <button
-                  class="btn btn-primary btn-lg g-recaptcha"
-                  id="submitQuoteRequestBtn"
-                >
-                  Submit
-                </button>
-            </div>
+    </div>
+
+    <div id="quoteForm" class="container-fluid text-center mt-5">
+      <div class="quote-form-inner">
+        <h3 class="display-4">Need a Quote?</h3>
+        <div class="row container-fluid padding text-center justify-content-center">
+          <div class="col-lg-4 col-lg-offset-4">
+            <form class="needs-validation quote-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <div class="invalid-feedback">Please enter a name</div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  required
+                />
+                <div class="invalid-feedback">Enter a properly formatted email address (e.g. email@email.ca)</div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="Phone No."
+                  required
+                />
+                <div class="invalid-feedback">Please provide a valid phone number</div>
+              </div>
+              <div class="form-group">
+                <label for="service">Service</label>
+                <select class="form-select" id="service" required>
+                  <option value="0" selected></option>
+                  <option value="1">Landscaping</option>
+                  <option value="2">Hardscaping</option>
+                  <option value="3">Snow Removal</option>
+                </select>
+                <div class="invalid-feedback">Please select relevant service</div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Include a brief message</div>
+              </div>
+              <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your information with anyone else.</small
+              >
+              <div
+                class="container-fluid d-flex justify-content-center align-items-center"
+              ></div>
+              <div
+                id="g-recaptcha-v2"
+                class="g-recaptcha d-flex justify-content-center align-items-center"
+                data-expired-callback="captchaExpired"
+                data-error-callback="captchaError"
+                data-callback="captchaComplete"
+              ></div>
+              <div class="text-center mb-3 d-flex-column">
+                <small id="captcha-expired">reCAPTCHA has expired</small>
+                <small id="captcha-error">Network connectivity error</small>
+                <small id="captcha-info">Please complete the reCAPTCHA</small>
+                <small id="captcha-failed">Captcha verification failed</small>
+                <small id="success-message"></small>
+              </div>
+            </form>
+            <button
+              class="btn btn-primary btn-lg g-recaptcha"
+              id="submitQuoteRequestBtn"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
+    </div>
 
     <!--- Gallery Section -->
-    <div class="container-fluid padding text-center" id="gallery">
+
+    <div class="container-fluid padding text-center mt-5" id="gallery">
       <div class="row d-flex flex-column justify-content-center">
         <h1 class="display-1">Gallery</h1>
         <h2 class="display-5">Are you ready to bring your property back to life?</h2>
         <!--<a href="#"><button class="btn btn-primary">Learn More</button></a>-->
       </div>
-      <div class="container-fluid">
-      <div class="row d-flex justify-content-start image-container">
+    <div classs="row">
+      <div class="col-lg-12 col-md-12 mb-4 mb-lg-0 d-flex flex-row flex-wrap justify-content-center align-items-center image-container">
 
-      </div>
-      <hr class="my-4" />
+      </div> 
     </div>
+  </div>
+
+    <hr class="my-4" />
   <!--- Connect -->
     <div class="container-fluid padding" id="contact">
       <div class="row text-center">
@@ -405,32 +408,32 @@
     </div>
 
     <!--- Footer -->
-      <div class="container-fluid">
-        <div class="row text-center ">
-          <div class="col-12 col-sm-6">
-            <img src="img/a1-logo.png" style="max-height: 10rem" />
-            <hr class="light" />
-            <p><a href="tel:6475236360">(647)-523-6360</a></p>
-            <p><a href="mailto:a1landscapping@gmail.com">a1landscaping.messaging@gmail.com</a></p>
-            <p>Ontario</p>
-            <p>Mississauga</p>
-          </div>
-          <div class="col-12 col-sm-6">
-            <hr class="light" />
-            <h5>Servicing the GTA</h5>
-            <hr class="light" />
-            <p>Toronto</p>
-            <p>Mississauga</p>
-            <p>Oakville</p>
-            <p>Brampton</p>
-            <p>Burlington</p>
-            <p>Etobicoke</p>
-          </div>
-          <div class="col-12">
-            <hr class="light-100" />
-            <h5>&copy; A-One Landscaping</h5>
-          </div>
+    <div class="container-fluid">
+      <div class="row text-center ">
+        <div class="col-12 col-sm-6">
+          <img src="img/a1-logo.png" style="max-height: 10rem" />
+          <hr class="light" />
+          <p><a href="tel:6475236360">(647)-523-6360</a></p>
+          <p><a href="mailto:a1landscapping@gmail.com">a1landscaping.messaging@gmail.com</a></p>
+          <p>Ontario</p>
+          <p>Mississauga</p>
+        </div>
+        <div class="col-12 col-sm-6">
+          <hr class="light" />
+          <h5>Servicing the GTA</h5>
+          <hr class="light" />
+          <p>Toronto</p>
+          <p>Mississauga</p>
+          <p>Oakville</p>
+          <p>Brampton</p>
+          <p>Burlington</p>
+          <p>Etobicoke</p>
+        </div>
+        <div class="col-12">
+          <hr class="light-100" />
+          <h5>&copy; A-One Landscaping</h5>
         </div>
       </div>
+    </div>
   </body>
 </html>
