@@ -130,8 +130,14 @@ body {
   padding: 3rem;
 }
 
+.form-container{
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
 #gallery{
-  width: 80vw;
+  width: 90vw;
 }
 
 .img-card > img {
@@ -139,6 +145,8 @@ body {
   height: 400px;
   width: 100%;
 }
+
+
 
 .gif {
   max-width: 100%;
