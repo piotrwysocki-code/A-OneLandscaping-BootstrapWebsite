@@ -60,7 +60,7 @@ submitQuoteRequest = () => {
 
     if(connectObj){
         $("#submitQuoteRequestBtn").html(`
-            <div class="spinner-border text-info" role="status">
+            <div class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         `);
