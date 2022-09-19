@@ -67,7 +67,7 @@ submitQuoteRequest = () => {
 
         $.ajax({
             type : 'POST',
-            url : 'http://localhost:5000/staging-a-onelandscaping/us-central1/app/send',
+            url : 'https://us-central1-staging-a-onelandscaping.cloudfunctions.net/app/send',
             data: connectObj,
             dataType : 'json',
             encode: true
