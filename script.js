@@ -34,7 +34,7 @@ $(()=>{
 
     for(let i = 1; i < 9; i++){
         $('.image-container').append(`
-        <div class="col-xxl-3 col-xl-4 col-md-6 img-fluid img-card">
+        <div class="img-fluid img-card">
                 <img loading="lazy" src="img/gallery/s${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
                 />
             </div>
@@ -43,7 +43,7 @@ $(()=>{
 
     for(let i = 0; i < 64; i++){
         $('.image-container').append(`
-        <div class="col-xxl-3 col-xl-4 col-md-6 img-fluid img-card">
+        <div class="img-fluid img-card">
         <img loading="lazy" src="img/gallery/m${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
             />
         </div>
