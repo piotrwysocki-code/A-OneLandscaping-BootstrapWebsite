@@ -39,10 +39,10 @@ $(() => {
         `);
   }
 
-  for (let i = 0; i < 64; i++) {
+  for (let i = 0; i < 60; i++) {
     $(".image-container").append(`
         <div class="img-fluid img-card">
-        <img loading="lazy" src="img/gallery/m${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
+        <img loading="lazy" src="img/gallery/gallery_img_${i}.jpg" class="w-100 shadow-1-strong rounded mb-4"
             />
         </div>
         `);
